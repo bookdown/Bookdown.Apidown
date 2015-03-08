@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.7.0">
+  <partials/>
+  <file path="Dispatcher.php" generated-path="Dispatcher.html" hash="66e6ce10e750a6e6b257ce1bde044520" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Closure">\Closure</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher" line="22" package="Aura.Dispatcher">
+      <extends/>
+      <implements>\Aura\Dispatcher\DispatcherInterface</implements>
+      <name>Dispatcher</name>
+      <full_name>\Aura\Dispatcher\Dispatcher</full_name>
+      <docblock line="22">
+        <description>A recursive dispatcher.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Dispatcher" line="34" package="Aura.Dispatcher">
+        <name>$objects</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::objects</full_name>
+        <default>array()</default>
+        <docblock line="34">
+          <description>Dispatchable objects.</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Dispatcher" line="43" package="Aura.Dispatcher">
+        <name>$object_param</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::object_param</full_name>
+        <default></default>
+        <docblock line="43">
+          <description>The param indicating the dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="var" line="43" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Dispatcher" line="52" package="Aura.Dispatcher">
+        <name>$method_param</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::method_param</full_name>
+        <default></default>
+        <docblock line="52">
+          <description>The param indicating the method to invoke on created objects.</description>
+          <long-description></long-description>
+          <tag name="var" line="52" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="67" package="Aura.Dispatcher">
+        <name>__construct</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::__construct()</full_name>
+        <docblock line="67">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="67" description="&lt;p&gt;An array of dispatchable objects keyed by name.&lt;/p&gt;" type="array" variable="$objects">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="67" description="&lt;p&gt;The param indicating the dispatchable&#10;object name.&lt;/p&gt;" type="string" variable="$object_param">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="67" description="&lt;p&gt;The param indicating the method to invoke&#10;on the dispatchable object.&lt;/p&gt;" type="string" variable="$method_param">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objects</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$object_param</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$method_param</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="90" package="Aura.Dispatcher">
+        <name>__invoke</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::__invoke()</full_name>
+        <docblock line="90">
+          <description>Uses the params to get a dispatchable object, then dispatches it using
+the params.</description>
+          <long-description></long-description>
+          <tag name="param" line="90" description="&lt;p&gt;Params for the invocation.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="param" line="90" description="&lt;p&gt;Use an explicit object name instead of&#10;getting it from the params.&lt;/p&gt;" type="string" variable="$object_name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="90" description="The return from the invoked object." type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::__invoke()" refers="\Aura\Dispatcher\DispatcherInterface::__invoke()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method___invoke"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$object_name</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Dispatcher" line="113" package="Aura.Dispatcher">
+        <name>dispatch</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::dispatch()</full_name>
+        <docblock line="113">
+          <description>Dispatches to the object with the params; if the result is an object
+with the dispatchable method, a closure, or an invokable object,
+recursively to that result with the same params.</description>
+          <long-description></long-description>
+          <tag name="param" line="113" description="&lt;p&gt;Dispatch to this object.&lt;/p&gt;" type="mixed" variable="$object">
+            <type>mixed</type>
+          </tag>
+          <tag name="param" line="113" description="&lt;p&gt;Params for the invocation.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="113" description="first non-dispatchable result." type="\Aura\Dispatcher\The">
+            <type>\Aura\Dispatcher\The</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="143" package="Aura.Dispatcher">
+        <name>setObjectParam</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::setObjectParam()</full_name>
+        <docblock line="143">
+          <description>Sets the parameter indicating the dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="param" line="143" description="&lt;p&gt;The parameter name to use.&lt;/p&gt;" type="string" variable="$object_param">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="143" description="" type="null">
+            <type>null</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::setObjectParam()" refers="\Aura\Dispatcher\DispatcherInterface::setObjectParam()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_setObjectParam"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object_param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="155" package="Aura.Dispatcher">
+        <name>getObjectParam</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::getObjectParam()</full_name>
+        <docblock line="155">
+          <description>Gets the parameter indicating the dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="return" line="155" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::getObjectParam()" refers="\Aura\Dispatcher\DispatcherInterface::getObjectParam()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_getObjectParam"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="169" package="Aura.Dispatcher">
+        <name>setMethodParam</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::setMethodParam()</full_name>
+        <docblock line="169">
+          <description>Sets the parameter indicating the method to call on the created object.</description>
+          <long-description></long-description>
+          <tag name="param" line="169" description="&lt;p&gt;The parameter name to use.&lt;/p&gt;" type="string" variable="$method_param">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="169" description="" type="null">
+            <type>null</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::setMethodParam()" refers="\Aura\Dispatcher\DispatcherInterface::setMethodParam()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_setMethodParam"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method_param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="181" package="Aura.Dispatcher">
+        <name>getMethodParam</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::getMethodParam()</full_name>
+        <docblock line="181">
+          <description>Gets the parameter indicating the method to call on the created object.</description>
+          <long-description></long-description>
+          <tag name="return" line="181" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::getMethodParam()" refers="\Aura\Dispatcher\DispatcherInterface::getMethodParam()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_getMethodParam"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="196" package="Aura.Dispatcher">
+        <name>setObjects</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::setObjects()</full_name>
+        <docblock line="196">
+          <description>Set the array of dispatchable objects; this clears all existing objects.</description>
+          <long-description></long-description>
+          <tag name="param" line="196" description="&lt;p&gt;An array where the key is a name and the value&#10;is a dispatchable object.&lt;/p&gt;" type="array" variable="$objects">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="196" description="" type="null">
+            <type>null</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::setObjects()" refers="\Aura\Dispatcher\DispatcherInterface::setObjects()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_setObjects"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objects</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="212" package="Aura.Dispatcher">
+        <name>addObjects</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::addObjects()</full_name>
+        <docblock line="212">
+          <description>Adds to the array of dispatchable objects; this merges with existing
+objects.</description>
+          <long-description></long-description>
+          <tag name="param" line="212" description="&lt;p&gt;An array where the key is a name and the value&#10;is a dispatchable object.&lt;/p&gt;" type="array" variable="$objects">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="212" description="" type="null">
+            <type>null</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::addObjects()" refers="\Aura\Dispatcher\DispatcherInterface::addObjects()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_addObjects"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objects</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="224" package="Aura.Dispatcher">
+        <name>getObjects</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::getObjects()</full_name>
+        <docblock line="224">
+          <description>Returns the array of dispatchable objects.</description>
+          <long-description></long-description>
+          <tag name="return" line="224" description="" type="array">
+            <type>array</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::getObjects()" refers="\Aura\Dispatcher\DispatcherInterface::getObjects()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_getObjects"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="238" package="Aura.Dispatcher">
+        <name>setObject</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::setObject()</full_name>
+        <docblock line="238">
+          <description>Sets a dispatchable object by name.</description>
+          <long-description></long-description>
+          <tag name="param" line="238" description="&lt;p&gt;The name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="238" description="&lt;p&gt;The dispatchable object.&lt;/p&gt;" type="object" variable="$object">
+            <type>object</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::setObject()" refers="\Aura\Dispatcher\DispatcherInterface::setObject()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_setObject"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="252" package="Aura.Dispatcher">
+        <name>hasObject</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::hasObject()</full_name>
+        <docblock line="252">
+          <description>Does a dispatchable object exist?</description>
+          <long-description></long-description>
+          <tag name="param" line="252" description="&lt;p&gt;The name of the dispatchable object.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="252" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::hasObject()" refers="\Aura\Dispatcher\DispatcherInterface::hasObject()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_hasObject"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="266" package="Aura.Dispatcher">
+        <name>getObject</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::getObject()</full_name>
+        <docblock line="266">
+          <description>Returns a dispatchable object using its name.</description>
+          <long-description></long-description>
+          <tag name="param" line="266" description="&lt;p&gt;The name of the dispatchable object.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="266" description="" type="object">
+            <type>object</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::getObject()" refers="\Aura\Dispatcher\DispatcherInterface::getObject()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_getObject"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="286" package="Aura.Dispatcher">
+        <name>getObjectByParams</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::getObjectByParams()</full_name>
+        <docblock line="286">
+          <description>Returns a dispatchable object using an array of params; if the
+`$object_param` is an object, it is returned directly, otherwise it is
+treated as a dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="param" line="286" description="&lt;p&gt;Params for the invocation.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="286" description="The dispatchable object." type="object">
+            <type>object</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Dispatcher\DispatcherInterface::getObjectByParams()" refers="\Aura\Dispatcher\DispatcherInterface::getObjectByParams()" link="/classes/Aura.Dispatcher.DispatcherInterface.html#method_getObjectByParams"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default></default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="318" package="Aura.Dispatcher">
+        <name>getMethodByParams</name>
+        <full_name>\Aura\Dispatcher\Dispatcher::getMethodByParams()</full_name>
+        <docblock line="318">
+          <description>Gets the method from the params.</description>
+          <long-description></long-description>
+          <tag name="param" line="318" description="&lt;p&gt;Params for the invocation.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="318" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default></default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Dispatcher" line="42" package="Aura.Dispatcher">
+        <name>invokeMethod</name>
+        <full_name>\Aura\Dispatcher\InvokeMethodTrait::invokeMethod()</full_name>
+        <docblock line="42">
+          <description>Invokes an object method with named parameters, honoring method scope
+relative to `$this`.</description>
+          <long-description></long-description>
+          <tag name="param" line="42" description="&lt;p&gt;The object to work with.&lt;/p&gt;" type="object" variable="$object">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="42" description="&lt;p&gt;The method to invoke on the object.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="42" description="&lt;p&gt;An array of key-value pairs to use as&#10;params for the method; the array keys are matched to the method param&#10;names.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="42" description="The return of the invoked object method." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+        <inherited_from>\Aura\Dispatcher\InvokeMethodTrait</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Dispatcher" line="39" package="Aura.Dispatcher">
+        <name>invokeClosure</name>
+        <full_name>\Aura\Dispatcher\InvokeClosureTrait::invokeClosure()</full_name>
+        <docblock line="39">
+          <description>Invokes a closure with named parameters.</description>
+          <long-description></long-description>
+          <tag name="param" line="39" description="&lt;p&gt;The closure to work with.&lt;/p&gt;" type="\Closure" variable="$closure">
+            <type>\Closure</type>
+          </tag>
+          <tag name="param" line="39" description="&lt;p&gt;An array of key-value pairs to use as&#10;params for the method; the array keys are matched to the method param&#10;names.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="39" description="The return of the invoked closure." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$closure</name>
+          <default></default>
+          <type>\Closure</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+        <inherited_from>\Aura\Dispatcher\InvokeClosureTrait</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJzVWEtz2zYQvutXoDOZRM7I0r2u6yhxp82hrad2T45HgUhIQkMBHAC0rUn837t4kQDFlxT1UE0msojF7uLbb5e7+Okq3+Sj2du3I6T/obsNlWhFM4LgO8dCIb5C80JgtOIC3fx2M3WC73KcfMFrYhan11TmWCUbIvxyRhPCJEEbpfIfZzOewy9eiIRMuVjP3KqcLWV67n5MwRP0/vbaapiNGN4S0JpYE58qExejUQGaP2RcFoLAr8r9ORIkKYSkjwSl5YZhPs9GSYalRNVzRLd5RraEqfDpR6aIWIFfo68jBB/ty0f2yL+Q34na8PROYKouakvOWbdmFo3X+uO/Sht4Cfjz5T8kUXJak3n3iAXCQuBdvDAz37ngCnaRFL1y+9Elun9otXi3ITrKeIsoS2mCFWVrpDYVeIErSAek0R2pBOwb5M/CWDvcn62BFikOCxpPxBlKBMFadRdSg1yzyntc+8AZKCsSxcWeJeuyiUoF/Jy5J5BBDXBK9IXswPpy1wys1Wn9j9EbFjWvqCt4sY0QhuGRKO2wNuJMG+EvlpD3aFWwRFHYu1gkHuCxFYRPDVFN5Um5GGNyiViRZcFqdBq7ahbP0NdKSEG5O/9ZEvWnNTH2ts4uWoVutMZxZL1R2lYDJx1646Rf2pj2NxRGg6WRlhrqNVEIN2E70YKsqnUSUQVlp+J8oKiLtt/m+v95khCogK+c4Rv7pSu/1qLjrYnA2TCyasrpwyDMEHnOIdzgW0BHUCgVwZDAK68IzmmIBoIrwbddzguiCsHQlj5DEmm2ugflPkvP9DAS2k1jj4BhXHwgS6Uzs79iEl2hcSgWsiwgK+x2BFl7OsXbKiK9IJIBdkPVvN/ZaHnXQ03lXw4it9eTxnswQfHeVoJeV2wDbmqsnVtPVG2CmF1oWJQJjSwypVsKoIKV9brKLRG5bbpMgPOJfXFOEJAQNpv4hPz3esr3frazTmHlzZYmpI5fZy5YNnmU/TmtQvC+kUqnzCMXIE3nFRUS8oSz8wgZe6ZmNpdvtJLQrSE2zK6T2FWpiF22inWwSzOfykWCs0w7OL6vTFl1D2fo9WsX0QV5prIqs6XMWT1fZrOQVxtsC6LMSUJXFE5ot8W54cJdek+DpmzPYp3sVcoFqWwqFGYJgVe46+C6HdUM95TV8ch1c9nvo9PdloixbwA2jyqHwTcMgX/e62uZTccA+cZXyzft/u47kGDGuCqJCTm9A7oKpft6RFjqExnIi80vkxBYnlMZqfKlzHoTFrtRYC2sCqXJqiJNeyujlRtcGW+JCl7dROkZ4sjGekj/ZwyYtxJUKBg22upJ2fz0vP86e5x6sbBQ1ZqwWpvfCdavpwPLnbOj26+ddB2ftH64mA4HnKmfAFX/rPPVt83xLHNUo/4fkKG9hW0mQ63nrg1W30mGo4A7hhjhqbuJccD5gBjG386R8MK2GUlGsIA3CZzSvC81Am1Dbvfo+QRllRi7MGzat5NhiC6t+ukjzopygjPL/fPb8VVFjmM/O0uKrKqJ7MF2nqZlJzoE3y0Ra+hdTV/oAfa6/sc44zQ9EmcjvjCwjOPFCapNxK1B+Ms4K/uD0HbM9kutttotB9XtPvaYkt0YkIF3MybSugx3yDqFvq+8+46bEllNjtpgGaHuKN8b4YcqqfpmPE7aUDEpc3UAJpoJw+6GSjIsOR/EeZgMQjBa+EAlgDZuBGQorZuhMDctiAKBDuXJEZhEg/OwDGlGxUw4Fow6fvWRoTGhHHSNTbfaCP6EGHlCvzwnJNfufLIW/uDqmqwoI6mzdQLkcXDHGt85eC2fo470c3QHMdH3TPDAHhKaiJTCwKCy3QRxPZA8UZhgjIjXply3gdvc6qDBCe8HTlBF2i+OamSBKSrl6IlAqj2SCjt3OYwfMTVD51VVd/QrcP+CyvVT8cXBDz41re17vfdhj4SdnLr1dwJtMyCV4dRr3TbvY2iwIJzprjpUcAgrcYkiz/ZuPfwgbqRbk8estrm3do1hx/unJ3G7jdcy1wg3p66eznmRpUgP6JCo6WC/hiW99XPoHODa/b5r4JPnlrkCPGhS6MugIGrRgGRubSL27wvtJ4OPa8ee+tXvy+hl9C8jjMgJ</source>
+  </file>
+  <file path="DispatcherInterface.php" generated-path="DispatcherInterface.html" hash="13f99d3605d257a7729f496c8bbadc79" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <interface namespace="Aura\Dispatcher" line="20" package="Aura.Dispatcher">
+      <name>DispatcherInterface</name>
+      <full_name>\Aura\Dispatcher\DispatcherInterface</full_name>
+      <docblock line="20">
+        <description>Interface for dispatchers.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Dispatcher"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="32" package="Aura.Dispatcher">
+        <name>__invoke</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::__invoke()</full_name>
+        <docblock line="32">
+          <description>Uses the params to get an dispatchable object, then invokes it with the
+same params.</description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="&lt;p&gt;Named params for the invocation.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="32" description="The return from the invoked object." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="43" package="Aura.Dispatcher">
+        <name>setObjectParam</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::setObjectParam()</full_name>
+        <docblock line="43">
+          <description>Sets the parameter indicating the dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="param" line="43" description="&lt;p&gt;The parameter name to use.&lt;/p&gt;" type="string" variable="$object_param">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="43" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object_param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="52" package="Aura.Dispatcher">
+        <name>getObjectParam</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::getObjectParam()</full_name>
+        <docblock line="52">
+          <description>Gets the parameter indicating the dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="return" line="52" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="63" package="Aura.Dispatcher">
+        <name>setMethodParam</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::setMethodParam()</full_name>
+        <docblock line="63">
+          <description>Sets the parameter indicating the method to call on the created object.</description>
+          <long-description></long-description>
+          <tag name="param" line="63" description="&lt;p&gt;The parameter name to use.&lt;/p&gt;" type="string" variable="$method_param">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="63" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method_param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="72" package="Aura.Dispatcher">
+        <name>getMethodParam</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::getMethodParam()</full_name>
+        <docblock line="72">
+          <description>Gets the parameter indicating the method to call on the created object.</description>
+          <long-description></long-description>
+          <tag name="return" line="72" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="85" package="Aura.Dispatcher">
+        <name>setObjects</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::setObjects()</full_name>
+        <docblock line="85">
+          <description>Set the array of dispatchable objects; this clears all existing objects.</description>
+          <long-description></long-description>
+          <tag name="param" line="85" description="&lt;p&gt;An array where the key is a name and the value&#10;is an dispatchable object.&lt;/p&gt;" type="array" variable="$objects">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="85" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objects</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="98" package="Aura.Dispatcher">
+        <name>addObjects</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::addObjects()</full_name>
+        <docblock line="98">
+          <description>Adds to the array of dispatchable objects; this merges with existing
+objects.</description>
+          <long-description></long-description>
+          <tag name="param" line="98" description="&lt;p&gt;An array where the key is a name and the value&#10;is an dispatchable object.&lt;/p&gt;" type="array" variable="$objects">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="98" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$objects</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="107" package="Aura.Dispatcher">
+        <name>getObjects</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::getObjects()</full_name>
+        <docblock line="107">
+          <description>Returns the array of dispatchable objects.</description>
+          <long-description></long-description>
+          <tag name="return" line="107" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="118" package="Aura.Dispatcher">
+        <name>setObject</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::setObject()</full_name>
+        <docblock line="118">
+          <description>Sets an dispatchable object by name.</description>
+          <long-description></long-description>
+          <tag name="param" line="118" description="&lt;p&gt;The name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="118" description="&lt;p&gt;The dispatchable object.&lt;/p&gt;" type="object" variable="$object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="129" package="Aura.Dispatcher">
+        <name>hasObject</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::hasObject()</full_name>
+        <docblock line="129">
+          <description>Does an dispatchable object exist?</description>
+          <long-description></long-description>
+          <tag name="param" line="129" description="&lt;p&gt;The name of the dispatchable object.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="129" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="140" package="Aura.Dispatcher">
+        <name>getObject</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::getObject()</full_name>
+        <docblock line="140">
+          <description>Returns an dispatchable object using its name.</description>
+          <long-description></long-description>
+          <tag name="param" line="140" description="&lt;p&gt;The name of the dispatchable object.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="140" description="" type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Dispatcher" line="154" package="Aura.Dispatcher">
+        <name>getObjectByParams</name>
+        <full_name>\Aura\Dispatcher\DispatcherInterface::getObjectByParams()</full_name>
+        <docblock line="154">
+          <description>Returns an dispatchable object using an array of params; if the
+`$object_param` is an object, it is returned directly, otherwise it is
+treated as an dispatchable object name.</description>
+          <long-description></long-description>
+          <tag name="param" line="154" description="&lt;p&gt;Params to look up the dispatchable&#10;object.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="154" description="The dispatchable object." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default></default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJzVVk1vEzEQve+vmAOHUJXsnYLaVJWAAxDRcgLUOl5v1mRjr2xv2wj478zY3m3SxvloKySiqpuMxzNv3vOO581xUzVZfnCQAf3BRSUtlLIWgM+GGQe6hFFrGJTawPj9eBgdTxrGZ2wq/OLwTNqGOV4J0y3XkgtlBVTONa/zXDf4S7eGi6E20zyu2nxii1fxxxCRwOn5WYiQZ4rNBUblIcX3uxRH2RLgD8oJU5IXASx6J7sb0DyTfYC7tT5o9isD/Ph09Oke8BXBg6sEccTm+FXDVDhgqofAJkiinvwU3B2SpwKprvUMt0kHN9JVZOzCWaw1hhrey3TizcCMYYvfI/o/4lxYCy9i6k+4t+hwEAkEi3Jx5qRWD+IZ4VqjYC5vcdsF+kZDafS83zvDtQD+3v7cP5t2gqpB2SpOOeDyMmwadKDewrcfL1Go9eydC7fEnkCyMWkhCbCa+oU1LAIdiAQ71hna+SJ4XgbjxUoC2k0ytfZhkMiAaut6l2qtcJ99ojFFH6xkTRf97vmKjnhD1bsgnq4ifooyaKx0QUxyVteAwcnKjWAudWbuqxRC/AOVPvpEUaXlrE9R6VEEPEaxZfQEOC2ZR+A7BLXrNcfIHqELdnReC2YsEG5xK62vKXps6jvdi2VhpKLlBtuk8HlnYkGXBQvaMVV46zWr27690fLazvhsb6IdrAJNCzwqCt+ud6VsLswUm7bv2B1nXaz/mTpWFPtS98VnsNupS2Hzm/bqV3Zbr1pPDkwWu1wXnnZqQBt8Y8DIjvfersaW0zrwmQ+7oOkSz7RIlugP4/EeBZJaiWsmJdhE650OU8XscmXbj1CiptYSbIm67qveI4oLq3sdx2cpj6m7tyeMS0cgy+Vx8GplpLiKTaAbJnF+REMoAm+cQho014tD0BjC3Eicur1LF83Fq4klcW0gOz13jvvJt9Z6Bm3zgP/VNrlZhie9WL0+p4uAqptDUak/2V8Nw9AI</source>
+  </file>
+  <file path="Exception/MethodNotAccessible.php" generated-path="Exception.MethodNotAccessible.html" hash="9a8b28ff81fc38dc582b64fe7da8fe36" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher\Exception" line="22" package="Aura.Dispatcher">
+      <extends>\Aura\Dispatcher\Exception</extends>
+      <name>MethodNotAccessible</name>
+      <full_name>\Aura\Dispatcher\Exception\MethodNotAccessible</full_name>
+      <docblock line="22">
+        <description>The method to be invoked is not accessible from the current scope.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+        <tag name="inherited_from" description="\Aura\Dispatcher\Exception" refers="\Aura\Dispatcher\Exception" link="/classes/Aura.Dispatcher.Exception.html"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNj0FLA0EMhe/zK3IudOeuBa1U8KIU9NjLbDbbGbo7GZKsFMT/7rRdrScRAiG88N77VnclFucXCwengbeYFPo0ENRdghhwD+tJAvQssH3aNvPjfQl4CHs6i80maQmGkeRbHhJSVoJoVm6851IvngSpYdn7WVXfarecj6Y2gYfXzcXBuxxGqq54idhdI3aPR6RiifOtc5P+rf9GIxjJIndgDG0lzO98oO5EmtkgIJJqait7LzyC1X+cRCgbKFaA/6F7h0NQhedz1Avb+upLR6PcKfwUdB/u030BMBd/Cw==</source>
+  </file>
+  <file path="Exception/MethodNotDefined.php" generated-path="Exception.MethodNotDefined.html" hash="d402459f40a0e169d868ecff32ba6d45" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher\Exception" line="22" package="Aura.Dispatcher">
+      <extends>\Aura\Dispatcher\Exception</extends>
+      <name>MethodNotDefined</name>
+      <full_name>\Aura\Dispatcher\Exception\MethodNotDefined</full_name>
+      <docblock line="22">
+        <description>The method to be invoked is not defined in the given object.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+        <tag name="inherited_from" description="\Aura\Dispatcher\Exception" refers="\Aura\Dispatcher\Exception" link="/classes/Aura.Dispatcher.Exception.html"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNT8tqwzAQvOsr9hyodW8DfeBCLw2B9piLLK0tNc6u0K5DoPTfKyfu41QKC8swwzzWtzlmY1crA/PBa0wCfRoR6s+uKHAP91Nx0HOB7dO2WYR32fm9G/BMNm2S7NRHLF/0mDySIETVfG0t54p4Kh4bLoNdWLGdhKsFNLUJPLy0FwdryB2wuvpLxO4nYvd48pg1Md0YM8nf/O9pCAfUyAGUoasL6ch7DPNSYoWAfaIZEmiVDumIBNy9odf/jbbGj04Ens8hG9Z2ccSTIgWB717m3XyYT32AeyM=</source>
+  </file>
+  <file path="Exception/MethodNotSpecified.php" generated-path="Exception.MethodNotSpecified.html" hash="a02f984f80f9d8bdc445c44c77b3f3ce" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher\Exception" line="22" package="Aura.Dispatcher">
+      <extends>\Aura\Dispatcher\Exception</extends>
+      <name>MethodNotSpecified</name>
+      <full_name>\Aura\Dispatcher\Exception\MethodNotSpecified</full_name>
+      <docblock line="22">
+        <description>The method to be invoked was not specified.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+        <tag name="inherited_from" description="\Aura\Dispatcher\Exception" refers="\Aura\Dispatcher\Exception" link="/classes/Aura.Dispatcher.Exception.html"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNT01LAzEQvedXvHOhm7sW/KCCF6VQj72kyWwTus2EzKwWxP9ubLfqSYSB4fFm3sfipsRi7Gxm8DV4iUnQp4HQdnFVwT3uxurQc8XqcdVNh7fF+b3b0YnslkmKUx+pXughecpCiKrlylouDfFYPXVcd3ZixW4lzCfQtSS4Xy/PCtZkd6Cm6s8Wmx+LzcPRU9HE+dqYUf7mf1cjHEgjByhj2xrmV95TwJsTZFZIIZ/6ROF/Ha3xgxPB00nzmXV9+QcdlXIQfAcx7+bDfAJTWnYk</source>
+  </file>
+  <file path="Exception/ObjectNotDefined.php" generated-path="Exception.ObjectNotDefined.html" hash="7bac4dbab0b70d5d2770da4efa9f64ad" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher\Exception" line="22" package="Aura.Dispatcher">
+      <extends>\Aura\Dispatcher\Exception</extends>
+      <name>ObjectNotDefined</name>
+      <full_name>\Aura\Dispatcher\Exception\ObjectNotDefined</full_name>
+      <docblock line="22">
+        <description>The dispatchable object name has not been defined.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+        <tag name="inherited_from" description="\Aura\Dispatcher\Exception" refers="\Aura\Dispatcher\Exception" link="/classes/Aura.Dispatcher.Exception.html"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNT8tKBDEQvPdX1HnByV0FH4zgSRf0uJdM0rOJjklI98CC+O9md8bHSYSGpqnqelxelVDIbDaE4+A5RMEYJ0bbxVZFHnEzV4sxV2zvt91KvC7Wvdo9n8Cuj1KsusD1C56i4ySMoFrOjcmlXXmujrtc92ZFxQziz9aja0lw+9QvCoaSfeOm6haL3Y/F7u7guGjM6YJolr/x39UYfiXZoTXMwws7xdEHwQpSVgzMCZ7HmNj/r6ohN1kRPJ7UHrL2yzf4oJy84DsNvdMHfQLDc3fM</source>
+  </file>
+  <file path="Exception/ObjectNotSpecified.php" generated-path="Exception.ObjectNotSpecified.html" hash="fa535bf2f20dc4cd1c5516024ec9693f" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher\Exception" line="22" package="Aura.Dispatcher">
+      <extends>\Aura\Dispatcher\Exception</extends>
+      <name>ObjectNotSpecified</name>
+      <full_name>\Aura\Dispatcher\Exception\ObjectNotSpecified</full_name>
+      <docblock line="22">
+        <description>The dispatchable object was not specified in the params.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+        <tag name="inherited_from" description="\Aura\Dispatcher\Exception" refers="\Aura\Dispatcher\Exception" link="/classes/Aura.Dispatcher.Exception.html"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNT01LA0EMvc+vyLngzl0FP6jgSQv12Es2m+1O3U7CJIsF8b87tmv1JEIgPN7jfVzf6KAhLhYBvg5ehmTQp5GhfsXiID3cTQWhlwKrx1UzC28V6RW3fCSbZTJFp4HLNz0m4mwMg7texihakUyFuJGyjTNrsbXuYgZNbQL36+XJIYaMe66udIrY/ERsHg7E6knyVQiT/c3/nsbQzSJs60Jpd0wOb2iQxcGUKfWJO0gZvIrrfNzb/wbHQCOawfPR80l8fXbjg3PuDM6twnv4CJ/EmXsW</source>
+  </file>
+  <file path="Exception/ParamNotSpecified.php" generated-path="Exception.ParamNotSpecified.html" hash="13992d22059fa53795dbc5d29c3bce21" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher\Exception" line="22" package="Aura.Dispatcher">
+      <extends>\Aura\Dispatcher\Exception</extends>
+      <name>ParamNotSpecified</name>
+      <full_name>\Aura\Dispatcher\Exception\ParamNotSpecified</full_name>
+      <docblock line="22">
+        <description>A method param (either named or sequential) was not specified.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Aura.Dispatcher"/>
+        <tag name="inherited_from" description="\Aura\Dispatcher\Exception" refers="\Aura\Dispatcher\Exception" link="/classes/Aura.Dispatcher.Exception.html"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNT8FKAzEQvecr3lELbu4qaKWCJ1mox17GZLYb3E1iZhYL4r+btVt7E2FgeLw38967vct9Nna1MpgHL30QdGFg1J2pKFKH9VQIXSpon9pmEd5ncm+05x+y2QTJpK7ncqKH4DgKo1fN19amXFGaiuMmlb1dWLGv4q8W0NQkeNhujh+siTRy/eqOFruzxe7x4DhrSPHGmEn+5s/V1hhZ++TnWjTigoNWMWYbj1pO+H3iqIGGS3yQICaFZHahC+z/V9saN5AI2tnhOen2dA4+KEcv+I1mPs2X+QYLgHx+</source>
+  </file>
+  <file path="Exception.php" generated-path="Exception.html" hash="706b2dca8711f61d88ae9cf5ffd25031" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Dispatcher" line="20" package="Aura.Dispatcher">
+      <extends>\Exception</extends>
+      <name>Exception</name>
+      <full_name>\Aura\Dispatcher\Exception</full_name>
+      <docblock line="20">
+        <description>A generic package-level exception.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Dispatcher"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJyNjkELwjAMhe/9FTkP1t5V0MkEjwM97lK7bC3WtrSdCOJ/t7pOPQqBkLzkvW+1dtIRVhQEXgVHqQL0SiOk7riPYHuoRs+htx6afUPz4cZxceYDvkVaq+B4FBL9LGsl0AQEGaNbMGZdmuzoBVLrB5bVwE6hK/NAEwlsD/XkwIjhF0yuYopovxFL8gNcwYAGvRKQgUqNV9SAN4EuKmv+A2ZEaB4C7Oa3ZBDRdAHaz4rcyYM8AT26YE0=</source>
+  </file>
+  <file path="InvokeClosureTrait.php" generated-path="InvokeClosureTrait.html" hash="b33fa0150d9804a683af0356765bcd99" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <namespace-alias name="Closure">\Closure</namespace-alias>
+    <namespace-alias name="ReflectionFunction">\ReflectionFunction</namespace-alias>
+    <trait namespace="Aura\Dispatcher" line="24" package="Aura.Dispatcher">
+      <name>InvokeClosureTrait</name>
+      <full_name>\Aura\Dispatcher\InvokeClosureTrait</full_name>
+      <docblock line="24">
+        <description>Invokes a closure with named parameters.</description>
+        <long-description></long-description>
+        <tag name="package" line="24" description="Aura.Dispatcher"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Dispatcher" line="39" package="Aura.Dispatcher">
+        <name>invokeClosure</name>
+        <full_name>\Aura\Dispatcher\InvokeClosureTrait::invokeClosure()</full_name>
+        <docblock line="39">
+          <description>Invokes a closure with named parameters.</description>
+          <long-description></long-description>
+          <tag name="param" line="39" description="&lt;p&gt;The closure to work with.&lt;/p&gt;" type="\Closure" variable="$closure">
+            <type>\Closure</type>
+          </tag>
+          <tag name="param" line="39" description="&lt;p&gt;An array of key-value pairs to use as&#10;params for the method; the array keys are matched to the method param&#10;names.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="39" description="The return of the invoked closure." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$closure</name>
+          <default></default>
+          <type>\Closure</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+    </trait>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJylVEtv2zAMvvtXEEUO9tDEwF6HZmmbrRu2y1CsxS5ND6pN20Icy5PkpkWX/z7qlTiP7oEZQSRb5MeP5Ee9O2urNkpfvIjA/OC64goKXiPQ2jKpQRQw7SSDQki4/Hw58obnLcvmrER7OLrgqmU6q1CG45pn2CiESuv2JE1FS2+ikxmOhCxTf6rSO5UP/cuImMD7qwuHkEYNWyChZi7EbBNiHEWd2vs6+/iQYau5aMb2+EMtVCfRvXzDosbMHH7qmswZ9bL+0tyLOSpgkDkvWHJdgWGQmyrQqlGqv8s9jbRkXHtQT+PafIqeIqDHxjVPWP4h/pbbuT0KmcIgOF9XuAbSApZCzi3gM/5MSvb4c2r+p1mGSsHAHiiYNu7QiGCOj8N7VndIhLhUBthUlqmA5n2MTjQRIMqVyMd270AIgVIkTgtbrtxAbCydfwCzzd/jK1F3soEFfyBvk6X/QPQMELdlzEPuO+6pXVspNCmBrAqvBO/mqxjvVvN4XY0J3NwmFsT10fYyBS2RaaoDdS9AjiErRlb6irR/15XKiHvUoDYvZn/G88nbN69fvVwjDaTTKIVpcHlAsXFglJB2e/EV/uiw0ZzVVNyyW9BewbJCnxhvyk0MMnB5bEPYhoQGWumtkdZm1FdkZBUHosPTEvXlWpxxYmow4DA59RVLenUyDy8g5kqhjn1Fb9w6PDXdvk127T051p8DcBKky4ndM16zuxr3fGyWN7eU58E44y2HFWCt8AA1/htCrVDctIRK/j+s+LNcAmGuLrBgXa2/mwDTAB4/R81MpJmE3Hk5Xn+kYjvZDxQnh4gdDtmI7WjAmtx8tJoi8fXnus+B5luZO3QCR2H0SDwnMBs89du1So7Ge866kmJpx2R96c+sEr8KfdVixguOeRxC7CYTbXb9IXDXgJO/u7RKdWyzyUWzKaK/cjZT4PymZB3bwvpwq2gV/QLIey9V</source>
+  </file>
+  <file path="InvokeMethodTrait.php" generated-path="InvokeMethodTrait.html" hash="33a22500b6b0618b22be5d70bacb22d2" package="Aura.Dispatcher">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="package" line="0" description="Aura.Dispatcher"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Dispatcher\Exception</namespace-alias>
+    <namespace-alias name="ReflectionMethod">\ReflectionMethod</namespace-alias>
+    <trait namespace="Aura\Dispatcher" line="24" package="Aura.Dispatcher">
+      <name>InvokeMethodTrait</name>
+      <full_name>\Aura\Dispatcher\InvokeMethodTrait</full_name>
+      <docblock line="24">
+        <description>Invokes an object method with named parameters, honoring method scope
+relative to `$this`.</description>
+        <long-description></long-description>
+        <tag name="package" line="24" description="Aura.Dispatcher"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Dispatcher" line="42" package="Aura.Dispatcher">
+        <name>invokeMethod</name>
+        <full_name>\Aura\Dispatcher\InvokeMethodTrait::invokeMethod()</full_name>
+        <docblock line="42">
+          <description>Invokes an object method with named parameters, honoring method scope
+relative to `$this`.</description>
+          <long-description></long-description>
+          <tag name="param" line="42" description="&lt;p&gt;The object to work with.&lt;/p&gt;" type="object" variable="$object">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="42" description="&lt;p&gt;The method to invoke on the object.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="42" description="&lt;p&gt;An array of key-value pairs to use as&#10;params for the method; the array keys are matched to the method param&#10;names.&lt;/p&gt;" type="array|\Aura\Dispatcher\ArrayAccess" variable="$params">
+            <type>array</type>
+            <type>\Aura\Dispatcher\ArrayAccess</type>
+          </tag>
+          <tag name="return" line="42" description="The return of the invoked object method." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$object</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default>array()</default>
+          <type>array|\Aura\Dispatcher\ArrayAccess</type>
+        </argument>
+      </method>
+    </trait>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJytVttu20YQfedXTAMBFgNLfJdqJ2pdoH1oYDRGX2wjWZNDcSuKy+4uJRuJ/72zN15EKa6REIZJcWfOnJk9M8uf39VFHSVv30Zg/uCm4ApyXiLQvWZSg8hh1UgGuZBw/fv13Bu+r1m6YWu0i/Mrrmqm0wJlWC55ipVCKLSuF0kiavolGpniXMh14ldV8qCymf8xJybwy8crh5BEFdsioaYuxF0XYhlFjRq9vfvtMcVac1Et7fJfmJeYmt9/oi5ERl5dmn9UO7FBBawC8fAPmcHWGsGe6wJM5MxkT3eNUp1DISohebUOZiqlhAyQxJJpvkPQAj5PNFXv8/+rUBJpybj2TBzFG/Mm+hIBXZarucLtR3F2YMd5D+K9t2Ah1sTfbwoMr8h1L+TGxj/hrLRlMPEUjLN/JGduEwJRgW5BT+AwKdnT15X5v0pTVAomdkHBqnKLRqcbfJrtWNkg1YFLZWIYJTAV0LyPkbJuqSztswMhBCqwpCW7V5ZmZ+n8A5jV54ivRN3ICrb8EV2+/gXRM0Au52y4gwcgib3XUmgyIdu8qayOvbPTytRvyHko7nlbkgu4vY8thpOSlVNiGrqXSoY5rzB711rwHKY/+dVP+MiVVqMYcdyDNBe9V8po/ALWqD+lJVOtVwxzOFsszujm3ZcDX11IsYcK99B27p3L7YPQV47eNASIO9/nqJ+VdG0+VJFPo7WbBKsLG+9wNIzzXA5ikBLSDTArPP7AS66fIJdiC7ZxjEZsr3VbltSS75gOxVYdkQBSmpJp2eBysAGB6OySq+uANh2X3cEQxFkb82x5zMRHChmShJRmVYokR0u+X1fAUuGYhc3kBQ7W5pBBhqQH0/9OF2TZAZNarsLyr1Y1sX35gZpqGn87lRHuQHw2q5NyGTZBD/jhyRXksCF6wV8r/jeLRRh8FNYDvXlFE6za0C/3QS8rCnYksVEzzC4V9kMYNR4IX+G/DVaas5KG4rrZ0rOCfYF+FNEW9JQt1270DCHsIA2D155ULVJrRvMYGVlNB/q4bs+yaUwzHCYcLi79kDvcCrNXXFE+Uz8Eb919dmmm9P1IvJ4c6x+b4I4OU70d4yWjmox8bJa390bKx+IM97ZrqANq/BuEaqG4UQGV/HtY8ZNcAmGuaMayptR/mwCrAD5udE/NnKRGZJnzcrxepOI7vQt02NyO2PGQlRhGo0+fzLy0mjLfFb3zuM/hVYfSyL29qIOnJLoF3E2+9Lf5OT5oYnMda2SrYOrjjzWmPOfHjzNbhFPTyn0h2bZxHylr+rAzVchE1RXff2L0xrb1W5F172gzzj7uc/Qc/Qev8YXI</source>
+  </file>
+  <package name="Aura.Dispatcher" full_name="Aura.Dispatcher"/>
+  <package name="global" full_name="global"/>
+  <namespace name="Aura" full_name="Aura">
+    <namespace name="Dispatcher" full_name="Aura\Dispatcher">
+      <namespace name="Exception" full_name="Aura\Dispatcher\Exception"/>
+    </namespace>
+  </namespace>
+  <deprecated count="0"/>
+</project>

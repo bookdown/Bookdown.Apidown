@@ -1,0 +1,24 @@
+{
+    "name": "bookdown/apidown",
+    "description" : "Converts PHPDocumentor XML to Bookdown files.",
+    "keywords" : [ "PHPDoc", "PHPDocumentor", "Markdown", "Bookdown", "API" ],
+    "homepage" : "https://github.com/bookdown/apidown",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Bookdown.Bookdown Contributors",
+            "homepage": "https://github.com/bookdown/Bookdown.Bookdown/contributors"
+        }
+    ],
+    "require" : {
+        "php" : ">=5.4"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Bookdown\\Apidown\\" : "src/"
+        }
+    },
+    "bin" : [
+        "bin/apidown"
+    ]
+}

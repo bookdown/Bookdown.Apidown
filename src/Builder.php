@@ -81,10 +81,10 @@ class Builder
         return (object) array(
             'name'          => (string) $constant->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlConstant),
+            'deprecated'    => $this->isDeprecated($xmlConstant),
             'summary'       => (string) $constant->docblock->description,
             'narrative'     => (string) $constant->docblock->{"long-description"},
             'value'         => (string) $constant->value,
-            'deprecated'    => $this->isDeprecated($xmlConstant),
         );
     }
 
@@ -112,13 +112,13 @@ class Builder
         return (object) array(
             'name'          => (string) $xmlProperty->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlProperty),
-            'type'          => $type,
-            'default'       => (string) $xmlProperty->default,
+            'deprecated'    => $this->isDeprecated($xmlProperty),
             'summary'       => (string) $xmlProperty->docblock->description,
             'narrative'     => (string) $xmlProperty->docblock->{"long-description"},
+            'type'          => $type,
             'visibility'    => (string) $xmlProperty['visibility'],
             'static'        => $this->getStatic($xmlProperty),
-            'deprecated'    => $this->isDeprecated($xmlProperty),
+            'default'       => (string) $xmlProperty->default,
         );
     }
 
@@ -145,14 +145,14 @@ class Builder
         return (object) array(
             'name'          => (string) $xmlMethod->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlMethod),
+            'deprecated'    => $this->isDeprecated($xmlMethod),
             'summary'       => (string) $xmlMethod->docblock->description,
             'narrative'     => (string) $xmlMethod->docblock->{"long-description"},
+            'return'        => $return,
             'visibility'    => (string) $xmlMethod['visibility'],
             'final'         => $this->getFinal($xmlMethod),
             'abstract'      => $this->getAbstract($xmlMethod),
             'static'        => $this->getStatic($xmlMethod),
-            'return'        => $return,
-            'deprecated'    => $this->isDeprecated($xmlMethod),
             'arguments'     => $this->getArguments($xmlMethod),
         );
     }
@@ -173,9 +173,9 @@ class Builder
     ) {
         $argument = (object) array(
             'name'      => (string) $xmlArgument->name,
+            'summary'   => null,
             'type'      => (string) $xmlArgument->type,
             'default'   => (string) $xmlArgument->default,
-            'summary'   => null,
         );
 
         $param = $this->getDocblockTag($xmlMethod, array(

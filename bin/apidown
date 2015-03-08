@@ -24,6 +24,7 @@ if (! $autoload) {
 
 require $autoload;
 
-$command = new Bookdown\Apidown\Command($argv);
+$container = new Bookdown\Apidown\Container();
+$command = $container->newCommand($GLOBALS);
 $code = $command();
 exit($code);

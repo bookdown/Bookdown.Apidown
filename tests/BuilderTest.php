@@ -164,6 +164,24 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->builder->getPropertyType($xml));
     }
 
+    public function testGetArgumentType()
+    {
+        $xml = $this->newXml('
+            <argument>
+                <type>array</type>
+            </argument>
+        ');
+
+        $this->assertSame('array', $this->builder->getArgumentType($xml));
+
+        $xml = $this->newXml('
+            <argument>
+            </argument>
+        ');
+
+        $this->assertNull($this->builder->getArgumentType($xml));
+    }
+
     public function testNewArgument()
     {
         $params = array(
@@ -219,26 +237,27 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
                 'summary' => null,
                 'byReference' => false,
                 'type' => 'string',
-                'default' => '',
+                'default' => null,
             ),
             '$bar' => array(
                 'name' => '$bar',
                 'summary' => null,
                 'byReference' => false,
                 'type' => 'int',
-                'default' => '',
+                'default' => null,
             ),
             '$baz' => array(
                 'name' => '$baz',
                 'summary' => null,
                 'byReference' => false,
                 'type' => 'array',
-                'default' => '',
+                'default' => null,
             ),
         );
 
         $actual = $this->builder->getArguments($xmlMethod);
 
+        $this->assertSame(array('$foo', '$bar', '$baz'), array_keys($actual));
         $this->assertSame($expect['$foo'], (array) $actual['$foo']);
         $this->assertSame($expect['$bar'], (array) $actual['$bar']);
         $this->assertSame($expect['$baz'], (array) $actual['$baz']);
@@ -299,21 +318,21 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
                 'summary' => 'Bar',
                 'byReference' => false,
                 'type' => 'int',
-                'default' => '',
+                'default' => null,
             ),
             '$foo' => array(
                 'name' => '$foo',
                 'summary' => 'Foo',
                 'byReference' => false,
                 'type' => 'string',
-                'default' => '',
+                'default' => null,
             ),
             '$baz' => array(
                 'name' => '$baz',
                 'summary' => 'Baz',
                 'byReference' => false,
                 'type' => 'array',
-                'default' => '',
+                'default' => null,
             ),
         );
 
@@ -322,6 +341,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         unset($actual_method->arguments);
 
         $this->assertSame($expect_method, (array) $actual_method);
+        $this->assertSame(array('$bar', '$foo', '$baz'), array_keys($actual_arguments));
         $this->assertSame($expect_arguments['$bar'], (array) $actual_arguments['$bar']);
         $this->assertSame($expect_arguments['$foo'], (array) $actual_arguments['$foo']);
         $this->assertSame($expect_arguments['$baz'], (array) $actual_arguments['$baz']);
@@ -386,6 +406,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         );
 
         $actual = $this->builder->getMethods($xml);
+        $this->assertSame(array('fooMethod', 'barMethod', 'bazMethod'), array_keys($actual));
         $this->assertSame($expect['fooMethod'], (array) $actual['fooMethod']);
         $this->assertSame($expect['barMethod'], (array) $actual['barMethod']);
         $this->assertSame($expect['bazMethod'], (array) $actual['bazMethod']);
@@ -393,6 +414,92 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testNewProperty()
     {
+        $xml = $this->newXml('
+            <property static="false" visibility="public">
+                <name>$foo</name>
+                <default></default>
+                <docblock>
+                    <description>Foo summary.</description>
+                    <long-description>Foo narrative.</long-description>
+                    <tag name="var" line="43" description="" type="string" variable="">
+                        <type>string</type>
+                    </tag>
+                </docblock>
+            </property>
+        ');
 
+        $expect = array(
+            'name' => '$foo',
+            'inheritedFrom' => null,
+            'isDeprecated' => false,
+            'summary' => 'Foo summary.',
+            'narrative' => 'Foo narrative.',
+            'type' => 'string',
+            'visibility' => 'public',
+            'static' => null,
+            'default' => null,
+        );
+
+        $actual = (array) $this->builder->newProperty($xml);
+        $this->assertSame($expect, $actual);
+    }
+
+    public function testGetProperties()
+    {
+        $xml = $this->newXml('
+            <class>
+                <property>
+                    <name>$foo</name>
+                </property>
+                <property>
+                    <name>$bar</name>
+                </property>
+                <property>
+                    <name>$baz</name>
+                </property>
+            </class>
+        ');
+
+        $expect = array(
+            '$foo' => array(
+                'name' => '$foo',
+                'inheritedFrom' => NULL,
+                'isDeprecated' => false,
+                'summary' => NULL,
+                'narrative' => NULL,
+                'type' => NULL,
+                'visibility' => NULL,
+                'static' => NULL,
+                'default' => NULL,
+            ),
+                '$bar' => array(
+                'name' => '$bar',
+                'inheritedFrom' => NULL,
+                'isDeprecated' => false,
+                'summary' => NULL,
+                'narrative' => NULL,
+                'type' => NULL,
+                'visibility' => NULL,
+                'static' => NULL,
+                'default' => NULL,
+            ),
+            '$baz' => array(
+                'name' => '$baz',
+                'inheritedFrom' => NULL,
+                'isDeprecated' => false,
+                'summary' => NULL,
+                'narrative' => NULL,
+                'type' => NULL,
+                'visibility' => NULL,
+                'static' => NULL,
+                'default' => NULL,
+            ),
+        );
+
+        $actual = $this->builder->getProperties($xml);
+        $this->assertSame(array('$foo', '$bar', '$baz'), array_keys($actual));
+        $this->assertSame($expect['$foo'], (array) $actual['$foo']);
+        $this->assertSame($expect['$bar'], (array) $actual['$bar']);
+        $this->assertSame($expect['$baz'], (array) $actual['$baz']);
     }
 }

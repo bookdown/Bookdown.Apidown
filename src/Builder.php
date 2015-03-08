@@ -112,7 +112,7 @@ class Builder
             'type'          => $this->getPropertyType($xmlProperty),
             'visibility'    => $this->getVisibility($xmlProperty),
             'static'        => $this->getStatic($xmlProperty),
-            'default'       => (string) $xmlProperty->default,
+            'default'       => $this->getDefault($xmlProperty),
         );
     }
 
@@ -174,8 +174,8 @@ class Builder
             'name'          => $name,
             'summary'       => $summary,
             'byReference'   => $byReference,
-            'type'          => (string) $xmlArgument->type,
-            'default'       => (string) $xmlArgument->default,
+            'type'          => $this->getArgumentType($xmlArgument),
+            'default'       => $this->getDefault($xmlArgument),
         );
     }
 
@@ -249,6 +249,22 @@ class Builder
         $var = $this->getDocblockTag($xmlProperty, array('name' => 'var'));
         if ($var) {
             return (string) $var->type;
+        }
+    }
+
+    public function getArgumentType(SimpleXmlElement $xmlArgument)
+    {
+        $value = (string) $xmlArgument->type;
+        if ($value) {
+            return $value;
+        }
+    }
+
+    public function getDefault(SimpleXmlElement $xml)
+    {
+        $value = (string) $xml->default;
+        if ($value) {
+            return $value;
         }
     }
 

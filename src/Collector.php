@@ -7,13 +7,13 @@ use SimpleXmlElement;
 
 class Collector
 {
-    protected $sdio;
+    protected $stdio;
 
     protected $fsio;
 
-    protected $classes;
-
     protected $builder;
+
+    protected $classes;
 
     public function __construct(
         Stdio $stdio,

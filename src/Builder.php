@@ -19,8 +19,8 @@ class Builder
             'abstract'      => $this->getAbstract($xmlClass),
             'type'          => (string) $xmlClass->getName(),
             'name'          => (string) $xmlClass->name,
-            'extends'       => $this->newInherits($xmlClass, 'extends'),
-            'implements'    => $this->newInherits($xmlClass, 'implements'),
+            'extends'       => $this->getParents($xmlClass, 'extends'),
+            'implements'    => $this->getParents($xmlClass, 'implements'),
             'constants'     => array(),
             'properties'    => array(),
             'methods'       => array(),
@@ -31,16 +31,16 @@ class Builder
             ),
         );
 
-        $this->addParts('constants', $class, $xmlClass);
-        $this->addParts('properties', $class, $xmlClass);
-        $this->addParts('methods', $class, $xmlClass);
+        $this->add('constants', $class, $xmlClass);
+        $this->add('properties', $class, $xmlClass);
+        $this->add('methods', $class, $xmlClass);
 
         return $class;
     }
 
-    protected function addParts($name, $class, SimpleXmlElement $xmlClass)
+    public function add($name, $class, SimpleXmlElement $xmlClass)
     {
-        $method = "new{$name}";
+        $method = "get{$name}";
         $parts = $this->$method($xmlClass);
         foreach ($parts as $part) {
             if ($part->inheritedFrom) {
@@ -54,19 +54,19 @@ class Builder
         ksort($class->inherited->$name);
     }
 
-    public function newInherits(SimpleXmlElement $xmlClass, $key)
+    public function getParents(SimpleXmlElement $xmlClass, $type)
     {
-        $inherits = array();
-        foreach ((array) $xmlClass->$key as $inherit) {
-            $inherit = ltrim((string) $inherit, '\\');
-            if ($inherit) {
-                $inherits[] = $inherit;
+        $parents = array();
+        foreach ((array) $xmlClass->$type as $parent) {
+            $parent = ltrim((string) $parent, '\\');
+            if ($parent) {
+                $parents[] = $parent;
             }
         }
-        return $inherits;
+        return $parents;
     }
 
-    public function newConstants(SimpleXmlElement $xmlClass)
+    public function getConstants(SimpleXmlElement $xmlClass)
     {
         $constants = array();
         foreach ($xmlClass->constant as $xmlConstant) {
@@ -88,7 +88,7 @@ class Builder
         );
     }
 
-    public function newProperties(SimpleXmlElement $xmlClass)
+    public function getProperties(SimpleXmlElement $xmlClass)
     {
         $properties = array();
         foreach ($xmlClass->property as $xmlProperty) {
@@ -103,7 +103,7 @@ class Builder
      */
     public function newProperty(SimpleXmlElement $xmlProperty)
     {
-        $type = 'mixed';
+        $type = 'unknown';
         $var = $this->getDocblockTag($xmlProperty, array('name' => 'var'));
         if ($var) {
             $type = (string) $var->type;
@@ -122,7 +122,7 @@ class Builder
         );
     }
 
-    public function newMethods(SimpleXmlElement $xmlClass)
+    public function getMethods(SimpleXmlElement $xmlClass)
     {
         $methods = array();
         foreach ($xmlClass->method as $xmlMethod) {
@@ -153,11 +153,11 @@ class Builder
             'static'        => $this->getStatic($xmlMethod),
             'return'        => $return,
             'deprecated'    => $this->isDeprecated($xmlMethod),
-            'arguments'     => $this->newArguments($xmlMethod),
+            'arguments'     => $this->getArguments($xmlMethod),
         );
     }
 
-    public function newArguments(SimpleXmlElement $xmlMethod)
+    public function getArguments(SimpleXmlElement $xmlMethod)
     {
         $arguments = array();
         foreach ($xmlMethod->argument as $xmlArgument) {

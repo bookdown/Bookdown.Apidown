@@ -12,7 +12,7 @@ class Builder
             'package'       => (string) $xmlClass['package'],
             'subpackage'    => (string) $xmlClass['subpackage'],
             'deprecated'    => $this->isDeprecated($xmlClass),
-            'summary'       => (string) $xmlClass->docblock->description,
+            'summary'       => $this->getSummary($xmlClass),
             'narrative'     => (string) $xmlClass->docblock->{"long-description"},
             'namespace'     => (string) $xmlClass['namespace'],
             'final'         => $this->getFinal($xmlClass),
@@ -82,8 +82,8 @@ class Builder
             'name'          => (string) $constant->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlConstant),
             'deprecated'    => $this->isDeprecated($xmlConstant),
-            'summary'       => (string) $constant->docblock->description,
-            'narrative'     => (string) $constant->docblock->{"long-description"},
+            'summary'       => $this->getSummary($xmlConstant),
+            'narrative'     => $this->getNarrative($xmlConstant),
             'value'         => (string) $constant->value,
         );
     }
@@ -113,10 +113,10 @@ class Builder
             'name'          => (string) $xmlProperty->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlProperty),
             'deprecated'    => $this->isDeprecated($xmlProperty),
-            'summary'       => (string) $xmlProperty->docblock->description,
-            'narrative'     => (string) $xmlProperty->docblock->{"long-description"},
+            'summary'       => $this->getSummary($xmlProperty),
+            'narrative'     => $this->getNarrative($$xmlProperty),
             'type'          => $type,
-            'visibility'    => (string) $xmlProperty['visibility'],
+            'visibility'    => $this->getVisibility($xmlProperty),
             'static'        => $this->getStatic($xmlProperty),
             'default'       => (string) $xmlProperty->default,
         );
@@ -137,19 +137,14 @@ class Builder
      */
     public function newMethod(SimpleXmlElement $xmlMethod)
     {
-        $return = $this->getDocblockTag($xmlMethod, array('name' => 'return'));
-        if ($return) {
-            $return = (string) $return['type'];
-        }
-
         return (object) array(
             'name'          => (string) $xmlMethod->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlMethod),
             'deprecated'    => $this->isDeprecated($xmlMethod),
-            'summary'       => (string) $xmlMethod->docblock->description,
-            'narrative'     => (string) $xmlMethod->docblock->{"long-description"},
-            'return'        => $return,
-            'visibility'    => (string) $xmlMethod['visibility'],
+            'summary'       => $this->getSummary($xmlMethod),
+            'narrative'     => $this->getNarrative($xmlMethod),
+            'return'        => $this->getReturn($xmlMethod),
+            'visibility'    => $this->getVisibility($xmlMethod),
             'final'         => $this->getFinal($xmlMethod),
             'abstract'      => $this->getAbstract($xmlMethod),
             'static'        => $this->getStatic($xmlMethod),
@@ -220,8 +215,39 @@ class Builder
         ));
     }
 
-    public function isByReference(SimpleXmlElement $xml)
+    public function getReturn(SimpleXmlElement $xmlMethod)
     {
+        $return = $this->getDocblockTag($xmlMethod, array('name' => 'return'));
+        if ($return) {
+            return (object) array(
+                'type' => (string) $return['type'],
+                'summary' => (string) $return['description'],
+            );
+        }
+    }
+
+    public function getVisibility(SimpleXmlElement $xml)
+    {
+        $value = (string) $xml['visibility'];
+        if ($value) {
+            return $value;
+        }
+    }
+
+    public function getSummary(SimpleXmlElement $xml)
+    {
+        $value = (string) $xml->docblock->description;
+        if ($value) {
+            return $value;
+        }
+    }
+
+    public function getNarrative(SimpleXmlElement $xml)
+    {
+        $value = (string) $xml->docblock->{'long-description'};
+        if ($value) {
+            return $value;
+        }
     }
 
     protected function getKeyword(SimpleXmlElement $xml, $key)
@@ -229,7 +255,7 @@ class Builder
         return ((string) $xml[$key]) === 'true' ? $key : null;
     }
 
-    protected function getDocblockTag(SimpleXmlElement $xml, $attrs)
+    protected function getDocblockTag(SimpleXmlElement $xml, array $attrs)
     {
         $tags = $this->getDocblockTags($xml, $attrs);
         if ($tags) {

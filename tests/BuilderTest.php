@@ -140,6 +140,30 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->builder->getVisibility($xml));
     }
 
+    public function testGetPropertyType()
+    {
+        $xml = $this->newXml('
+            <property>
+                <docblock>
+                    <tag name="var">
+                        <type>string</type>
+                    </tag>
+                </docblock>
+            </property>
+        ');
+
+        $this->assertSame('string', $this->builder->getPropertyType($xml));
+
+        $xml = $this->newXml('
+            <property>
+                <docblock>
+                </docblock>
+            </property>
+        ');
+
+        $this->assertNull($this->builder->getPropertyType($xml));
+    }
+
     public function testNewArgument()
     {
         $params = array(
@@ -259,7 +283,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $expect_method = array(
             'name' => 'fooMethod',
             'inheritedFrom' => null,
-            'deprecated' => false,
+            'isDeprecated' => false,
             'summary' => 'Short summary.',
             'narrative' => 'Long narrative.',
             'return' => null,
@@ -323,7 +347,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             'fooMethod' => array(
                 'name' => 'fooMethod',
                 'inheritedFrom' => null,
-                'deprecated' => false,
+                'isDeprecated' => false,
                 'summary' => null,
                 'narrative' => null,
                 'return' => null,
@@ -336,7 +360,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             'barMethod' => array(
                 'name' => 'barMethod',
                 'inheritedFrom' => null,
-                'deprecated' => false,
+                'isDeprecated' => false,
                 'summary' => null,
                 'narrative' => null,
                 'return' => null,
@@ -349,7 +373,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             'bazMethod' => array(
                 'name' => 'bazMethod',
                 'inheritedFrom' => null,
-                'deprecated' => false,
+                'isDeprecated' => false,
                 'summary' => null,
                 'narrative' => null,
                 'return' => null,
@@ -365,5 +389,10 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expect['fooMethod'], (array) $actual['fooMethod']);
         $this->assertSame($expect['barMethod'], (array) $actual['barMethod']);
         $this->assertSame($expect['bazMethod'], (array) $actual['bazMethod']);
+    }
+
+    public function testNewProperty()
+    {
+
     }
 }

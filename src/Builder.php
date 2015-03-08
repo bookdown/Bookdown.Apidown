@@ -11,7 +11,7 @@ class Builder
             'fullName'      => ltrim((string) $xmlClass->full_name, '\\'),
             'package'       => (string) $xmlClass['package'],
             'subpackage'    => (string) $xmlClass['subpackage'],
-            'deprecated'    => $this->isDeprecated($xmlClass),
+            'isDeprecated'  => $this->isDeprecated($xmlClass),
             'summary'       => $this->getSummary($xmlClass),
             'narrative'     => (string) $xmlClass->docblock->{"long-description"},
             'namespace'     => (string) $xmlClass['namespace'],
@@ -81,13 +81,16 @@ class Builder
         return (object) array(
             'name'          => (string) $constant->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlConstant),
-            'deprecated'    => $this->isDeprecated($xmlConstant),
+            'isDeprecated'  => $this->isDeprecated($xmlConstant),
             'summary'       => $this->getSummary($xmlConstant),
             'narrative'     => $this->getNarrative($xmlConstant),
             'value'         => (string) $constant->value,
         );
     }
 
+    /**
+     * @todo @property-read, @property-write
+     */
     public function getProperties(SimpleXmlElement $xmlClass)
     {
         $properties = array();
@@ -98,24 +101,15 @@ class Builder
         return $properties;
     }
 
-    /**
-     * @todo @property-read, @property-write
-     */
     public function newProperty(SimpleXmlElement $xmlProperty)
     {
-        $type = 'unknown';
-        $var = $this->getDocblockTag($xmlProperty, array('name' => 'var'));
-        if ($var) {
-            $type = (string) $var->type;
-        }
-
         return (object) array(
             'name'          => (string) $xmlProperty->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlProperty),
-            'deprecated'    => $this->isDeprecated($xmlProperty),
+            'isDeprecated'  => $this->isDeprecated($xmlProperty),
             'summary'       => $this->getSummary($xmlProperty),
             'narrative'     => $this->getNarrative($$xmlProperty),
-            'type'          => $type,
+            'type'          => $this->getPropertyType($xmlProperty),
             'visibility'    => $this->getVisibility($xmlProperty),
             'static'        => $this->getStatic($xmlProperty),
             'default'       => (string) $xmlProperty->default,
@@ -140,7 +134,7 @@ class Builder
         return (object) array(
             'name'          => (string) $xmlMethod->name,
             'inheritedFrom' => $this->getInheritedFrom($xmlMethod),
-            'deprecated'    => $this->isDeprecated($xmlMethod),
+            'isDeprecated'  => $this->isDeprecated($xmlMethod),
             'summary'       => $this->getSummary($xmlMethod),
             'narrative'     => $this->getNarrative($xmlMethod),
             'return'        => $this->getReturn($xmlMethod),
@@ -247,6 +241,14 @@ class Builder
         $value = (string) $xml->docblock->{'long-description'};
         if ($value) {
             return $value;
+        }
+    }
+
+    public function getPropertyType(SimpleXmlElement $xmlProperty)
+    {
+        $var = $this->getDocblockTag($xmlProperty, array('name' => 'var'));
+        if ($var) {
+            return (string) $var->type;
         }
     }
 

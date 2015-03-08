@@ -160,69 +160,37 @@ class Builder
     public function getArguments(SimpleXmlElement $xmlMethod)
     {
         $arguments = array();
+        $params = $this->getDocblockTags($xmlMethod, array('name' => 'param'));
         foreach ($xmlMethod->argument as $xmlArgument) {
-            $argument = $this->newArgument($xmlMethod, $xmlArgument);
+            $argument = $this->newArgument($xmlArgument, $params);
             $arguments[$argument->name] = $argument;
         }
         return $arguments;
     }
 
-    public function newArgument(
-        SimpleXmlElement $xmlMethod,
-        SimpleXmlElement $xmlArgument
-    ) {
-        $argument = (object) array(
-            'name'      => (string) $xmlArgument->name,
-            'summary'   => null,
-            'type'      => (string) $xmlArgument->type,
-            'default'   => (string) $xmlArgument->default,
+    public function newArgument(SimpleXmlElement $xmlArgument, array $params)
+    {
+        $name = (string) $xmlArgument->name;
+
+        $summary = null;
+        foreach ($params as $param) {
+            if ($name === (string) $param['variable']) {
+                $summary = (string) $param['description'];
+            }
+        }
+
+        $byReference = ((string) $xmlArgument['by_reference']) === 'true';
+
+        return (object) array(
+            'name'          => $name,
+            'summary'       => $summary,
+            'byReference'   => $byReference,
+            'type'          => (string) $xmlArgument->type,
+            'default'       => (string) $xmlArgument->default,
         );
-
-        $param = $this->getDocblockTag($xmlMethod, array(
-            'name' => 'param',
-            'variable' => $xmlArgument->name
-        ));
-
-        if (! $param) {
-            return $argument;
-        }
-
-        $param_type = (string) $param['type'];
-        if (! $argument->type && $param_type) {
-            $argument->type = $param_type;
-        }
-
-        $param_description = (string) $param['description'];
-        if ($param_description) {
-            $argument->summary = $param_description;
-        }
-
-        return $argument;
     }
 
-    protected function getFinal(SimpleXmlElement $xml)
-    {
-        return $this->getKeyword($xml, 'final');
-    }
-
-    protected function getAbstract(SimpleXmlElement $xml)
-    {
-        return $this->getKeyword($xml, 'abstract');
-    }
-
-    protected function getStatic(SimpleXmlElement $xml)
-    {
-        return $this->getKeyword($xml, 'static');
-    }
-
-    protected function isDeprecated(SimpleXmlElement $xml)
-    {
-        return (bool) $this->getDocblockTag($xml, array(
-            'name' => 'deprecated'
-        ));
-    }
-
-    protected function getInheritedFrom(SimpleXmlElement $xml)
+    public function getInheritedFrom(SimpleXmlElement $xml)
     {
         $value = (string) $xml->inherited_from;
         if ($value) {
@@ -230,32 +198,54 @@ class Builder
         }
     }
 
+    public function getFinal(SimpleXmlElement $xml)
+    {
+        return $this->getKeyword($xml, 'final');
+    }
+
+    public function getAbstract(SimpleXmlElement $xml)
+    {
+        return $this->getKeyword($xml, 'abstract');
+    }
+
+    public function getStatic(SimpleXmlElement $xml)
+    {
+        return $this->getKeyword($xml, 'static');
+    }
+
+    public function isDeprecated(SimpleXmlElement $xml)
+    {
+        return (bool) $this->getDocblockTag($xml, array(
+            'name' => 'deprecated'
+        ));
+    }
+
+    public function isByReference(SimpleXmlElement $xml)
+    {
+    }
+
     protected function getKeyword(SimpleXmlElement $xml, $key)
     {
         return ((string) $xml[$key]) === 'true' ? $key : null;
     }
 
-    protected function getDocblockTag(SimpleXmlElement $xml, $vars)
+    protected function getDocblockTag(SimpleXmlElement $xml, $attrs)
     {
-        $tags = $this->getDocblockTags($xml, $vars);
+        $tags = $this->getDocblockTags($xml, $attrs);
         if ($tags) {
             return $tags[0];
         }
     }
 
-    protected function getDocblockTags(SimpleXmlElement $xml, array $vars)
+    protected function getDocblockTags(SimpleXmlElement $xml, array $attrs)
     {
-        $spec = array();
-        foreach ($vars as $key => $val) {
-            $spec[] = "@{$key}=\"{$val}\"";
+        $query = array();
+        foreach ($attrs as $key => $val) {
+            $query[] = "@{$key}=\"{$val}\"";
         }
-        $spec = implode(' and ', $spec);
+        $query = implode(' and ', $query);
 
-        $tags = $xml->xpath("docblock/tag[$spec]");
-        if ($tags) {
-            return $tags;
-        }
-
-        return array();
+        // add error checking for `false` return
+        return $xml->xpath("docblock/tag[$query]");
     }
 }

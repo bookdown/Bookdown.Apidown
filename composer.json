@@ -12,6 +12,7 @@
     ],
     "require" : {
         "php" : ">=5.4",
+        "ext-simplexml": "*",
         "bookdown/bookdown": "dev-develop"
     },
     "autoload" : {

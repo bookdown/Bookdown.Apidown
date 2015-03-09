@@ -383,36 +383,36 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $expect = array(
             '$foo' => array(
                 'name' => '$foo',
-                'inheritedFrom' => NULL,
+                'inheritedFrom' => null,
                 'isDeprecated' => false,
-                'summary' => NULL,
-                'narrative' => NULL,
-                'type' => NULL,
-                'visibility' => NULL,
-                'static' => NULL,
-                'default' => NULL,
+                'summary' => null,
+                'narrative' => null,
+                'type' => null,
+                'visibility' => null,
+                'static' => null,
+                'default' => null,
             ),
                 '$bar' => array(
                 'name' => '$bar',
-                'inheritedFrom' => NULL,
+                'inheritedFrom' => null,
                 'isDeprecated' => false,
-                'summary' => NULL,
-                'narrative' => NULL,
-                'type' => NULL,
-                'visibility' => NULL,
-                'static' => NULL,
-                'default' => NULL,
+                'summary' => null,
+                'narrative' => null,
+                'type' => null,
+                'visibility' => null,
+                'static' => null,
+                'default' => null,
             ),
             '$baz' => array(
                 'name' => '$baz',
-                'inheritedFrom' => NULL,
+                'inheritedFrom' => null,
                 'isDeprecated' => false,
-                'summary' => NULL,
-                'narrative' => NULL,
-                'type' => NULL,
-                'visibility' => NULL,
-                'static' => NULL,
-                'default' => NULL,
+                'summary' => null,
+                'narrative' => null,
+                'type' => null,
+                'visibility' => null,
+                'static' => null,
+                'default' => null,
             ),
         );
 
@@ -501,5 +501,55 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expect['FOO'], (array) $actual['FOO']);
         $this->assertSame($expect['BAR'], (array) $actual['BAR']);
         $this->assertSame($expect['BAZ'], (array) $actual['BAZ']);
+    }
+
+    public function testNewClass()
+    {
+        $xml = $this->newXml('
+            <class namespace="Foo\Bar">
+                <extends>\Foo\Bar\AbstractBaz</extends>
+                <implements>\Foo\Bar\BazInterface</implements>
+                <name>Baz</name>
+                <full_name>\Foo\Bar\Baz</full_name>
+                <docblock>
+                    <description>Baz summary.</description>
+                    <long-description>Baz description.</long-description>
+                </docblock>
+            </class>
+        ');
+
+        // $expect = \stdClass::__set_state(array(
+        //     'fullName' => 'Foo\\Bar\\Baz',
+        //     'package' => null,
+        //     'isDeprecated' => false,
+        //     'summary' => 'Baz summary.',
+        //     'narrative' => 'Baz description.',
+        //     'namespace' => 'Foo\\Bar',
+        //     'final' => null,
+        //     'abstract' => null,
+        //     'type' => 'class',
+        //     'name' => 'Baz',
+        //     'extends' => '\\Foo\\Bar\\AbstractBaz',
+        //     'implements' => array (
+        //         0 => 'Foo\\Bar\\BazInterface',
+        //     ),
+        //     'constants' => array (
+        //     ),
+        //     'properties' => array (
+        //     ),
+        //     'methods' => array (
+        //     ),
+        //     'inherited' => \stdClass::__set_state(array(
+        //         'constants' => array (
+        //         ),
+        //         'properties' => array (
+        //         ),
+        //         'methods' => array (
+        //         ),
+        //     )),
+        // ));
+
+        $actual = $this->builder->newClass($xml);
+        var_export($actual);
     }
 }

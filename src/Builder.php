@@ -10,7 +10,6 @@ class Builder
         $class = (object) array(
             'fullName'      => ltrim((string) $xmlClass->full_name, '\\'),
             'package'       => $this->getAttributeValue($xmlClass, 'package'),
-            'subpackage'    => $this->getAttributeValue($xmlClass, 'subpackage'),
             'isDeprecated'  => $this->isDeprecated($xmlClass),
             'summary'       => $this->getDocblockTagValue($xmlClass, 'description'),
             'narrative'     => $this->getDocblockTagValue($xmlClass, 'long-description'),
@@ -157,7 +156,7 @@ class Builder
         return (object) array(
             'name'          => $name,
             'summary'       => $this->getArgumentSummary($params, $name),
-            'byReference'   => ($byReference === true),
+            'byReference'   => ($byReference === 'true'),
             'type'          => $this->getTagValue($xmlArgument, 'type'),
             'default'       => $this->getTagValue($xmlArgument, 'default'),
         );

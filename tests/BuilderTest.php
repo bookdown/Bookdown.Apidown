@@ -15,36 +15,6 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         return simplexml_load_string($string);
     }
 
-    public function testGetKeywords()
-    {
-        $xml = $this->newXml('<foo final="true" abstract="true" static="true"></foo>');
-        $this->assertSame('final', $this->builder->getFinal($xml));
-        $this->assertSame('abstract', $this->builder->getAbstract($xml));
-        $this->assertSame('static', $this->builder->getStatic($xml));
-
-        $xml = $this->newXml('<foo final="false" abstract="false" static="false"></foo>');
-        $this->assertNull($this->builder->getFinal($xml));
-        $this->assertNull($this->builder->getAbstract($xml));
-        $this->assertNull($this->builder->getStatic($xml));
-
-        $xml = $this->newXml('<foo></foo>');
-        $this->assertNull($this->builder->getFinal($xml));
-        $this->assertNull($this->builder->getAbstract($xml));
-        $this->assertNull($this->builder->getStatic($xml));
-    }
-
-    public function testGetInheritedFrom()
-    {
-        $xml = $this->newXml('<foo><inherited_from>Bar</inherited_from></foo>');
-        $this->assertSame('Bar', $this->builder->getInheritedFrom($xml));
-
-        $xml = $this->newXml('<foo><inherited_from></inherited_from></foo>');
-        $this->assertNull($this->builder->getInheritedFrom($xml));
-
-        $xml = $this->newXml('<foo></foo>');
-        $this->assertNull($this->builder->getInheritedFrom($xml));
-    }
-
     public function testIsDeprecated()
     {
         $xml = $this->newXml('
@@ -87,59 +57,6 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->builder->getReturn($xml));
     }
 
-    public function testGetSummary()
-    {
-        $xml = $this->newXml('
-            <foo>
-                <docblock>
-                    <description>Summary line.</description>
-                </docblock>
-            </foo>
-        ');
-
-        $this->assertSame('Summary line.', $this->builder->getSummary($xml));
-
-        $xml = $this->newXml('
-            <foo>
-                <docblock>
-                </docblock>
-            </foo>
-        ');
-
-        $this->assertNull($this->builder->getSummary($xml));
-    }
-
-    public function testGetNarrative()
-    {
-        $xml = $this->newXml('
-            <foo>
-                <docblock>
-                    <long-description>Narrative lines.</long-description>
-                </docblock>
-            </foo>
-        ');
-
-        $this->assertSame('Narrative lines.', $this->builder->getNarrative($xml));
-
-        $xml = $this->newXml('
-            <foo>
-                <docblock>
-                </docblock>
-            </foo>
-        ');
-
-        $this->assertNull($this->builder->getNarrative($xml));
-    }
-
-    public function testGetVisibility()
-    {
-        $xml = $this->newXml('<foo visibility="public" />');
-        $this->assertSame('public', $this->builder->getVisibility($xml));
-
-        $xml = $this->newXml('<foo />');
-        $this->assertNull($this->builder->getVisibility($xml));
-    }
-
     public function testGetPropertyType()
     {
         $xml = $this->newXml('
@@ -152,7 +69,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             </property>
         ');
 
-        $this->assertSame('string', $this->builder->getPropertyType($xml));
+        $this->assertSame('string', $this->builder->getVarType($xml));
 
         $xml = $this->newXml('
             <property>
@@ -161,25 +78,28 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             </property>
         ');
 
-        $this->assertNull($this->builder->getPropertyType($xml));
+        $this->assertNull($this->builder->getVarType($xml));
     }
 
-    public function testGetArgumentType()
+    public function testGetImplements()
     {
         $xml = $this->newXml('
-            <argument>
-                <type>array</type>
-            </argument>
+            <class>
+                <implements>Foo</implements>
+                <implements>Bar</implements>
+            </class>
         ');
 
-        $this->assertSame('array', $this->builder->getArgumentType($xml));
+
+        $expect = array('Foo', 'Bar');
+        $this->assertSame($expect, $this->builder->getImplements($xml));
 
         $xml = $this->newXml('
-            <argument>
-            </argument>
+            <class>
+            </class>
         ');
 
-        $this->assertNull($this->builder->getArgumentType($xml));
+        $this->assertSame(array(), $this->builder->getImplements($xml));
     }
 
     public function testNewArgument()
@@ -501,5 +421,85 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expect['$foo'], (array) $actual['$foo']);
         $this->assertSame($expect['$bar'], (array) $actual['$bar']);
         $this->assertSame($expect['$baz'], (array) $actual['$baz']);
+    }
+
+    public function testNewConstant()
+    {
+        $xml = $this->newXml('
+            <constant>
+                <name>FOO</name>
+                <value>0</value>
+                <docblock>
+                    <description>FOO summary.</description>
+                    <long-description>FOO narrative.</long-description>
+                </docblock>
+            </constant>
+        ');
+
+        $expect = array (
+            'name' => 'FOO',
+            'inheritedFrom' => null,
+            'isDeprecated' => false,
+            'summary' => 'FOO summary.',
+            'narrative' => 'FOO narrative.',
+            'type' => null,
+            'value' => '0',
+        );
+
+        $actual = $this->builder->newConstant($xml);
+        $this->assertSame($expect, (array) $actual);
+    }
+
+    public function testGetConstants()
+    {
+        $xml = $this->newXml('
+            <class>
+                <constant>
+                    <name>FOO</name>
+                </constant>
+                <constant>
+                    <name>BAR</name>
+                </constant>
+                <constant>
+                    <name>BAZ</name>
+                </constant>
+            </class>
+        ');
+
+        $expect = array(
+            'FOO' => array(
+                'name' => 'FOO',
+                'inheritedFrom' => null,
+                'isDeprecated' => false,
+                'summary' => null,
+                'narrative' => null,
+                'type' => null,
+                'value' => null,
+            ),
+            'BAR' => array(
+                'name' => 'BAR',
+                'inheritedFrom' => null,
+                'isDeprecated' => false,
+                'summary' => null,
+                'narrative' => null,
+                'type' => null,
+                'value' => null,
+            ),
+            'BAZ' => array(
+                'name' => 'BAZ',
+                'inheritedFrom' => null,
+                'isDeprecated' => false,
+                'summary' => null,
+                'narrative' => null,
+                'type' => null,
+                'value' => null,
+            ),
+        );
+
+        $actual = $this->builder->getConstants($xml);
+        $this->assertSame(array('FOO', 'BAR', 'BAZ'), array_keys($actual));
+        $this->assertSame($expect['FOO'], (array) $actual['FOO']);
+        $this->assertSame($expect['BAR'], (array) $actual['BAR']);
+        $this->assertSame($expect['BAZ'], (array) $actual['BAZ']);
     }
 }

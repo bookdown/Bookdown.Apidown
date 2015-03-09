@@ -1,0 +1,2769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.7.0">
+  <partials/>
+  <file path="CliFactory.php" generated-path="CliFactory.html" hash="0afbc78929ef55c417965660c4bd3b0c" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Argv">\Aura\Cli\Context\Argv</namespace-alias>
+    <namespace-alias name="Env">\Aura\Cli\Context\Env</namespace-alias>
+    <namespace-alias name="GetoptFactory">\Aura\Cli\Context\GetoptFactory</namespace-alias>
+    <namespace-alias name="GetoptParser">\Aura\Cli\Context\GetoptParser</namespace-alias>
+    <namespace-alias name="OptionFactory">\Aura\Cli\Context\OptionFactory</namespace-alias>
+    <namespace-alias name="Server">\Aura\Cli\Context\Server</namespace-alias>
+    <namespace-alias name="Formatter">\Aura\Cli\Stdio\Formatter</namespace-alias>
+    <namespace-alias name="Handle">\Aura\Cli\Stdio\Handle</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli" line="27" package="Aura.Cli">
+      <extends/>
+      <name>CliFactory</name>
+      <full_name>\Aura\Cli\CliFactory</full_name>
+      <docblock line="27">
+        <description>A factory for creating Context and Stdio objects.</description>
+        <long-description></long-description>
+        <tag name="package" line="27" description="Aura.Cli"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="38" package="Aura.Cli">
+        <name>newContext</name>
+        <full_name>\Aura\Cli\CliFactory::newContext()</full_name>
+        <docblock line="38">
+          <description>Returns a new Context object.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;A copy of $GLOBALS.&lt;/p&gt;" type="array" variable="$globals">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="38" description="" type="\Aura\Cli\Context">
+            <type>\Aura\Cli\Context</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$globals</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="75" package="Aura.Cli">
+        <name>newStdio</name>
+        <full_name>\Aura\Cli\CliFactory::newStdio()</full_name>
+        <docblock line="75">
+          <description>Returns a new Stdio object.</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;The resource to open for stdin.&lt;/p&gt;" type="string" variable="$stdin">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="75" description="&lt;p&gt;The resource to open for stdout.&lt;/p&gt;" type="string" variable="$stdout">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="75" description="&lt;p&gt;The resource to open for stderr.&lt;/p&gt;" type="string" variable="$stderr">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="" type="\Aura\Cli\Stdio">
+            <type>\Aura\Cli\Stdio</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$stdin</name>
+          <default>'php://stdin'</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stdout</name>
+          <default>'php://stdout'</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stderr</name>
+          <default>'php://stderr'</default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJyNVVFv2jAQfs+vuAekJB0j73RVRzvaPlQrgqkvY6pMMCFbsCPboUNT//vOdhKcQAArkuW7z/fd2fc5X27zde5FV1ce6A9+rFMJqzSjgHNOhAK+glEhCKy4gMnTZFACv2ZpTJmksFYqH0YRz3HFCxHTARdJVHpltJDLz+VigFRwN/tmI0QeIxsqcxJTQzC/z9Jrzyvkfjm/50zRv2o+Esn2+rhrzLo8j1TxXD2QWHGxO4mZECGp6IC85Crl7HSYGRXbgwAztUz5/IGLDVGqw/tE2DKjWPb+BkawslzmxGNBiUpZAiUV4AYwe4EvftNYyfpC8CT/kMRSDJCiOuY4I1ICGsoavH8e4DCMelQTTKkqBJNAgNH3mtDSDFpYZBNkA0QIsoNekvEFySTmHvN8p1um9/j8cjd6nh3sE4akit70RmbOiwU2DKwKFuuT18mU6KBJFxq4rUaPHmVbPd9g70qqggr3038bf3/1f4U1shq3plJsoQuwwwqLt1UzSnPxxxhn4+nreNpNalvmsh1DZ4fLTlAWR+vVjm5qraYLwMMa7HImRjFvVY/eGFBDasHeYoVlDA0ZhaETsuwIp+eCRi76WvtNiz32llHX0TI1k619yK6nD+8iIbhq65CBVEJrtCcRyvANpViUfQxB4VZ8Go2Yjft8CF6okzHQfz4IFeJkEPR3adMUfKEyDTZwBGFOANvCx8cefwtm7fcbAF2fC8B1C6GTdxG49g0gdOTu9E0rCz202b6ugU2qD77ww/4pECaCqPdPZ2CYTSesfu4Pm+3D+w9SbBxj</source>
+  </file>
+  <file path="Context/AbstractValues.php" generated-path="Context.AbstractValues.html" hash="4c894cc8ba8c98fd3314f619438ad73b" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="18" package="Aura.Cli">
+      <extends/>
+      <name>AbstractValues</name>
+      <full_name>\Aura\Cli\Context\AbstractValues</full_name>
+      <docblock line="18">
+        <description>A read-only representation of data values.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="27" package="Aura.Cli">
+        <name>$values</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::values</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>The values represented by this object.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="36" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::__construct()</full_name>
+        <docblock line="36">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="36" description="&lt;p&gt;The values to be represented by this object.&lt;/p&gt;" type="array" variable="$values">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="55" package="Aura.Cli">
+        <name>get</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::get()</full_name>
+        <docblock line="55">
+          <description>Returns a value.</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="&lt;p&gt;The key, if any, to get the value of; if null, will&#10;return all values.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="55" description="&lt;p&gt;The alternative default value to return if the&#10;requested key does not exist.&lt;/p&gt;" type="string" variable="$alt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="55" description="The requested value, or the alternative default&#10;value." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alt</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJyNU01v2zAMvftX8JBDUiT2fVnWZu1hx2IbdlmHgLbpxK0ieRKdJRj630fJcj5ad6gQgFFEvvf4yHy8bjZNkl1dJeA/8H1TO6hqRSCxQctgKli2FqEyFu6/3Kcx8UbVBWlHsGFuPmSZaeRmWltQauw6i68uy105i5dUqODzt7sOIUs0bsk1WFAgeLhV9cOt0Ux7nidnkpZgCcuZ0eog3xpLjjQj10Z7bSUywg5VS+4oTTCfcN3BpgLbExYKnYNl7thiwT9CUfI3ATmBzp8+iBMUcU+sVEJ+APYemfyRCk5fFN3s0AJai4fLhyzExhqWIkEZdcjS5zC5+CAi24KNfUUhU8FtR9LjnItlAzm9X3JU1uYyJKhaXQRjV6uiVzC+ZFp0zOPJJBR27vkz8hyzT8e0Y4v+8fmtRr8St1Y7iDN8o1lRUus1jJ7oEFqVOIW6AtQSpeE1sbQYLZCtmPtH3So1hT+1Uj2aDWSASp025n90qDjQSSSrZeV2BCVV2MrvHZVwR1AhFAUnpt8C7833kksjjmjDQPvavd6ZiLCt95Lv+U7VgWUK8tfjYR09yJB7w6MVr8bByEV0KLTZXV7OVJqKuYuYcPboT5R+Mfv5MSNOvUcKi7MSuFXwwQXo6WXx5D0MP33hr0GePl166jfvOfkHk1tnow==</source>
+  </file>
+  <file path="Context/Argv.php" generated-path="Context.Argv.html" hash="844c3214fbdc7ca083809d1448a5fe05" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="18" package="Aura.Cli">
+      <extends>\Aura\Cli\Context\AbstractValues</extends>
+      <name>Argv</name>
+      <full_name>\Aura\Cli\Context\Argv</full_name>
+      <docblock line="18">
+        <description>A read-only representation of $argv values.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Context\AbstractValues" refers="\Aura\Cli\Context\AbstractValues" link="/classes/Aura.Cli.Context.AbstractValues.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="27" package="Aura.Cli">
+        <name>$values</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::values</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>The values represented by this object.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="36" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::__construct()</full_name>
+        <docblock line="36">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="36" description="&lt;p&gt;The values to be represented by this object.&lt;/p&gt;" type="array" variable="$values">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="55" package="Aura.Cli">
+        <name>get</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::get()</full_name>
+        <docblock line="55">
+          <description>Returns a value.</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="&lt;p&gt;The key, if any, to get the value of; if null, will&#10;return all values.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="55" description="&lt;p&gt;The alternative default value to return if the&#10;requested key does not exist.&lt;/p&gt;" type="string" variable="$alt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="55" description="The requested value, or the alternative default&#10;value." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alt</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+    </class>
+    <source>eJxNjkFrwzAMhe/+FTr0VGh83wpt2h12DGzs1IvqKImZZxtJKSul/71Om46BQHpI+t5bb/KQjV0uDUwFn4MX6HwgKD0jK6QO6pERusTQvDfVfLgN3lEUgkE1v1ibclFpZEdV4t7OW7FHaVezqIoV7D7eHgRrIv6QZHR0Nzjsgz/sU1T61VfzL1INTNiuUgznMmUmoaioPsUp2wK5P8EJw0jyl61Av7F/cKvCfTq6gCJQTx/FhWJbxFGU0enXnWAu5mpuJndWsg==</source>
+  </file>
+  <file path="Context/Env.php" generated-path="Context.Env.html" hash="0d0ec8ba6a29ed363180cce63af781ea" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="19" package="Aura.Cli">
+      <extends>\Aura\Cli\Context\AbstractValues</extends>
+      <name>Env</name>
+      <full_name>\Aura\Cli\Context\Env</full_name>
+      <docblock line="19">
+        <description>A read-only representation of $_ENV values; falls back to getenv() when the
+value does not exist in $_ENV.</description>
+        <long-description></long-description>
+        <tag name="package" line="19" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Context\AbstractValues" refers="\Aura\Cli\Context\AbstractValues" link="/classes/Aura.Cli.Context.AbstractValues.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="27" package="Aura.Cli">
+        <name>$values</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::values</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>The values represented by this object.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="35" package="Aura.Cli">
+        <name>get</name>
+        <full_name>\Aura\Cli\Context\Env::get()</full_name>
+        <docblock line="35">
+          <description>Returns a value.</description>
+          <long-description></long-description>
+          <tag name="param" line="35" description="&lt;p&gt;The key, if any, to get the value of; if null, will&#10;return all values.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="35" description="&lt;p&gt;The alternative default value to return if the&#10;requested key does not exist.&lt;/p&gt;" type="string" variable="$alt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="35" description="The requested value, or the alternative default&#10;value." type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Cli\Context\AbstractValues::get()" refers="\Aura\Cli\Context\AbstractValues::get()" link="/classes/Aura.Cli.Context.AbstractValues.html#method_get"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alt</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="36" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::__construct()</full_name>
+        <docblock line="36">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="36" description="&lt;p&gt;The values to be represented by this object.&lt;/p&gt;" type="array" variable="$values">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="55" package="Aura.Cli">
+        <name>get</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::get()</full_name>
+        <docblock line="55">
+          <description>Returns a value.</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="&lt;p&gt;The key, if any, to get the value of; if null, will&#10;return all values.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="55" description="&lt;p&gt;The alternative default value to return if the&#10;requested key does not exist.&lt;/p&gt;" type="string" variable="$alt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="55" description="The requested value, or the alternative default&#10;value." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alt</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+    </class>
+    <source>eJyVUl1r20AQfNevmIIf7OBI73ZN6qSBPpXQljwFyllaWYfPd+rdyXEo/u/d+1AS3JSSQ7A67e7M7Gg/XvVdX1QXFwXCgx+ddGilInDshfUwLdaDFWiNxd2XuzIXflKyJu0Inff9oqpMzzcz2JpKY7dVzrpq45rLfCmZCtffPyeEqtBiT64XNUWChxslH26M9nT0y+KVpDUsiebSaPXEb70lR9oLL40O2iY/b7/e4yDUQG6JVijlsBH1Dt5gS570YTrDY0cavqMAF0vRGHLQxoOO0nlInYCep2NZO7FNykpWNmqulXAOt/rAjQzeOKw3zltR+/soofhdgE9UH84Y8I38YLWDSALKszQTWrEHQ0m9xWRHT/wrCBznkC2E5pgmCnPkIUy7DEk9KDXHo1RqRLORDGxGduY/dEL5SMeRrGZvD+wQtWLg74mKuTMoE0YnR6ZfDO+pCVLPXP2LNCPs5ZHrA99Ld2SZg3fMv61jBHnLvSrGftjwoqEddB2Xg72aRiNX2aE4ZrrMYkf6V+FMGJZT7Arv1mIxtqae2fK5joefxtoPq1XKvQIJJ48Yal66TsU5Ud7MwPEvdF5lR++FH/OsLOVPxan4Ay1AH5o=</source>
+  </file>
+  <file path="Context/Getopt.php" generated-path="Context.Getopt.html" hash="141af9af29ab4177a078da503a8fa573" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="18" package="Aura.Cli">
+      <extends>\Aura\Cli\Context\AbstractValues</extends>
+      <name>Getopt</name>
+      <full_name>\Aura\Cli\Context\Getopt</full_name>
+      <docblock line="18">
+        <description>A read-only representation of named option and numeric argument values.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Context\AbstractValues" refers="\Aura\Cli\Context\AbstractValues" link="/classes/Aura.Cli.Context.AbstractValues.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="27" package="Aura.Cli">
+        <name>$errors</name>
+        <full_name>\Aura\Cli\Context\Getopt::errors</full_name>
+        <default>array()</default>
+        <docblock line="27">
+          <description>Any getopt parsing errors.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="27" package="Aura.Cli">
+        <name>$values</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::values</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>The values represented by this object.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="38" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\Getopt::__construct()</full_name>
+        <docblock line="38">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;The values to be represented by this object.&lt;/p&gt;" type="array" variable="$values">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;Any getopt parsing errors.&lt;/p&gt;" type="array" variable="$errors">
+            <type>array</type>
+          </tag>
+          <tag name="inherited_from" description="\Aura\Cli\Context\AbstractValues::__construct()" refers="\Aura\Cli\Context\AbstractValues::__construct()" link="/classes/Aura.Cli.Context.AbstractValues.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$errors</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="53" package="Aura.Cli">
+        <name>hasErrors</name>
+        <full_name>\Aura\Cli\Context\Getopt::hasErrors()</full_name>
+        <docblock line="53">
+          <description>Are there error messages related to getopt parsing?</description>
+          <long-description></long-description>
+          <tag name="return" line="53" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="65" package="Aura.Cli">
+        <name>getErrors</name>
+        <full_name>\Aura\Cli\Context\Getopt::getErrors()</full_name>
+        <docblock line="65">
+          <description>Returns the error messages related to getopt parsing.</description>
+          <long-description></long-description>
+          <tag name="return" line="65" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="36" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::__construct()</full_name>
+        <docblock line="36">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="36" description="&lt;p&gt;The values to be represented by this object.&lt;/p&gt;" type="array" variable="$values">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="55" package="Aura.Cli">
+        <name>get</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::get()</full_name>
+        <docblock line="55">
+          <description>Returns a value.</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="&lt;p&gt;The key, if any, to get the value of; if null, will&#10;return all values.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="55" description="&lt;p&gt;The alternative default value to return if the&#10;requested key does not exist.&lt;/p&gt;" type="string" variable="$alt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="55" description="The requested value, or the alternative default&#10;value." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alt</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+    </class>
+    <source>eJyVUktv2zAMvvtX8JBDWyzxPXukWTdsx2IbdipQ0DLteFMkgZKLBUX/+yhZTuM0HTLBsCSI+l7iu5XbuKK8uiogfvBj03loOk0gs0MOYBtY94zQWIbbr7eLXHitO0XGE2xCcMuytE52tmdFC8ttmU99Wfl6njcLoYKP3z8NCGVhcEveoaJEcHeju7sbawL9CW+LA0lrYMJ6bo3eycoxeTIBQ2dN1BZBarAu7dHUYPotcacAuZWVCfCAuie/1y2Ev7EdOBfCOapRGr2HLxQEC0QDmdrDuvKBUYWfCaN4LEBGkhbHOMHa7KAdbkpmvjMtELPlyDopvH5AFmWMu+lBmWbHNpAK4mc2XIf3Q/HFpSRymloSE4m9CpZfkIkW3A4IMBtikAemnAgECxU9Ryq01Q5CbABb/RId/8bLCs+1nh32lTQDNL1R6cHu79Wo/2IolDEVvI/gzXHBcUbp/BIe93UiSHwtl4csGVYCHatm0fL8wx4t4w4FTyn3Ey/OJFGR/FM1SCd76SovcWqMUUq401hWx2kyhZ4NVNbqc6LaoP+chGWjzzYz0NTHCsQvwRIa1J4OzZxw8y0h+OjobD8vuiPLeL27jwwJ3H8YGh08FX8B78BaKw==</source>
+  </file>
+  <file path="Context/GetoptFactory.php" generated-path="Context.GetoptFactory.html" hash="334d48a2cefe2cfe8ecc45db1f128188" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Getopt">\Aura\Cli\Context\Getopt</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="20" package="Aura.Cli">
+      <extends/>
+      <name>GetoptFactory</name>
+      <full_name>\Aura\Cli\Context\GetoptFactory</full_name>
+      <docblock line="20">
+        <description>A factory to create Getopt objects.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="29" package="Aura.Cli">
+        <name>$getopt_parser</name>
+        <full_name>\Aura\Cli\Context\GetoptFactory::getopt_parser</full_name>
+        <default></default>
+        <docblock line="29">
+          <description>A getopt parser.</description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="" type="\Aura\Cli\Context\GetoptParser" variable="">
+            <type>\Aura\Cli\Context\GetoptParser</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="38" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\GetoptFactory::__construct()</full_name>
+        <docblock line="38">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;A getopt parser.&lt;/p&gt;" type="\Aura\Cli\Context\GetoptParser" variable="$getopt_parser">
+            <type>\Aura\Cli\Context\GetoptParser</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$getopt_parser</name>
+          <default></default>
+          <type>\Aura\Cli\Context\GetoptParser</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="50" package="Aura.Cli">
+        <name>getGetoptParser</name>
+        <full_name>\Aura\Cli\Context\GetoptFactory::getGetoptParser()</full_name>
+        <docblock line="50">
+          <description>Returns the getopt parser.</description>
+          <long-description></long-description>
+          <tag name="return" line="50" description="" type="\Aura\Cli\Context\GetoptParser">
+            <type>\Aura\Cli\Context\GetoptParser</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="66" package="Aura.Cli">
+        <name>newInstance</name>
+        <full_name>\Aura\Cli\Context\GetoptFactory::newInstance()</full_name>
+        <docblock line="66">
+          <description>Returns a new Getopt instance.</description>
+          <long-description></long-description>
+          <tag name="param" line="66" description="&lt;p&gt;The command line input array, as from $argv.&lt;/p&gt;" type="array" variable="$input">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="66" description="&lt;p&gt;An options defintion array.&lt;/p&gt;" type="array" variable="$options">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="66" description="" type="\Aura\Cli\Context\Getopt">
+            <type>\Aura\Cli\Context\Getopt</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJyNU91v2jAQf89fcQ88hAqS93bryrr142lom/qEhIy5gLfEjs5Ot2rq/76L7VAIFLCQjHN3v4/z+cOnel0n+cVFAu0Pfq6VhUKVCLzXghyYAiYNCSgMwfRhmsXEm1JJ1BZh7Vx9meem5pNpSGJmaJXHqM0XdjmOh4yp4POPLwEhT7So0NZCoieY3ZZqdmu0w7/uKkkau/95do/O1G30TfAECiGdoRdwBiShcAghDcziF0pnN4qZ6rdYBdiMYTsdshTWxqK7AJb8S4CXp2lXtzHdKoBzbyxS1gvfPAuKSFOfsBvP/V6TcSwMlzAIYPMAxr4Ok7J966hple0Rcqmodih7qCckR0nNgi8JikZLp4yG+Vx2nOkR7KEvDr1q18Dx+Iyvd/k/7tlsU1/fM/sdXUPaglvjiV6Tzzzd7p43Bt0uSfsmIuwhL2dKF6DxTzeFivsoND+LwzcniMQLDJSuG8evD0GaqhJ6CaXS/Aj9Z58zAsEvk0wFA0Gr5+NwTMxWLUw0dH+XWCjtG+BzjnfznD6yx8foLd12MeqJOGdIxtcW3beQn24Kr07U+P2x5UwD9VZFtPN2Eekm9D4gH59E2aBNh6Pz0r8SGbJxhto17GbkNfkPweqRLA==</source>
+  </file>
+  <file path="Context/GetoptParser.php" generated-path="Context.GetoptParser.html" hash="216aa050a5331ec7020a6acc04038673" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <namespace-alias name="StdClass">\StdClass</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="21" package="Aura.Cli">
+      <extends/>
+      <name>GetoptParser</name>
+      <full_name>\Aura\Cli\Context\GetoptParser</full_name>
+      <docblock line="21">
+        <description>Parses command line input for named option and numeric argument values.</description>
+        <long-description></long-description>
+        <tag name="package" line="21" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="30" package="Aura.Cli">
+        <name>$errors</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::errors</full_name>
+        <default></default>
+        <docblock line="30">
+          <description>Any parsing errors.</description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="39" package="Aura.Cli">
+        <name>$input</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::input</full_name>
+        <default></default>
+        <docblock line="39">
+          <description>The command line input to be parsed.</description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="48" package="Aura.Cli">
+        <name>$options</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::options</full_name>
+        <default></default>
+        <docblock line="48">
+          <description>Use these option definitions when parsing input.</description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="57" package="Aura.Cli">
+        <name>$values</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::values</full_name>
+        <default></default>
+        <docblock line="57">
+          <description>The values parsed from the command line input.</description>
+          <long-description></long-description>
+          <tag name="var" line="57" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="66" package="Aura.Cli">
+        <name>$option_factory</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::option_factory</full_name>
+        <default></default>
+        <docblock line="66">
+          <description>A factory to create option objects.</description>
+          <long-description></long-description>
+          <tag name="var" line="66" description="" type="\Aura\Cli\Context\OptionFactory" variable="">
+            <type>\Aura\Cli\Context\OptionFactory</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="75" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::__construct()</full_name>
+        <docblock line="75">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;A factory to create option objects.&lt;/p&gt;" type="\Aura\Cli\Context\OptionFactory" variable="$option_factory">
+            <type>\Aura\Cli\Context\OptionFactory</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option_factory</name>
+          <default></default>
+          <type>\Aura\Cli\Context\OptionFactory</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="87" package="Aura.Cli">
+        <name>setOptions</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::setOptions()</full_name>
+        <docblock line="87">
+          <description>Sets the options to be used when parsing input.</description>
+          <long-description></long-description>
+          <tag name="param" line="87" description="&lt;p&gt;The array of option definitions.&lt;/p&gt;" type="array" variable="$options">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="106" package="Aura.Cli">
+        <name>parseInput</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::parseInput()</full_name>
+        <docblock line="106">
+          <description>Parses the input array according to the defined options.</description>
+          <long-description></long-description>
+          <tag name="param" line="106" description="&lt;p&gt;The input array.&lt;/p&gt;" type="array" variable="$input">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="106" description="False if there were parsing errors, true if there were no&#10;errors." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="158" package="Aura.Cli">
+        <name>getOption</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::getOption()</full_name>
+        <docblock line="158">
+          <description>Gets a single option definition converted to an array.</description>
+          <long-description>Looking for an undefined option will cause an error message, but will
+otherwise proceed. Undefined short flags are treated as rejecting a
+param, and undefined long options are treated as taking an optional
+param.</long-description>
+          <tag name="param" line="158" description="&lt;p&gt;The definition key to look for.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="158" description="An option struct." type="\StdClass">
+            <type>\StdClass</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="186" package="Aura.Cli">
+        <name>getOptionByAlias</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::getOptionByAlias()</full_name>
+        <docblock line="186">
+          <description>Gets an option by its alias.</description>
+          <long-description></long-description>
+          <tag name="param" line="186" description="&lt;p&gt;The option alias.&lt;/p&gt;" type="string" variable="$alias">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="186" description="Returns the matching option struct, or null if no&#10;option was found with that alias." type="\StdClass|null">
+            <type>\StdClass</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$alias</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="205" package="Aura.Cli">
+        <name>setLongOptionValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::setLongOptionValue()</full_name>
+        <docblock line="205">
+          <description>Sets the value for a long option.</description>
+          <long-description></long-description>
+          <tag name="param" line="205" description="&lt;p&gt;The current input element, e.g. &quot;--foo&quot; or&#10;&quot;--bar=baz&quot;.&lt;/p&gt;" type="string" variable="$input">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="205" description="" type="boolean|null">
+            <type>boolean</type>
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="224" package="Aura.Cli">
+        <name>splitLongOptionInput</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::splitLongOptionInput()</full_name>
+        <docblock line="224">
+          <description>Splits the long option input into name and value.</description>
+          <long-description></long-description>
+          <tag name="param" line="224" description="&lt;p&gt;The current input element, e.g. &quot;--foo&quot; or&#10;&quot;--bar=baz&quot;.&lt;/p&gt;" type="string" variable="$input">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="224" description="An array of the long option name and value." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="250" package="Aura.Cli">
+        <name>longOptionRequiresValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::longOptionRequiresValue()</full_name>
+        <docblock line="250">
+          <description>Does the long option require a param value?</description>
+          <long-description></long-description>
+          <tag name="param" line="250" description="&lt;p&gt;An option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="param" line="250" description="&lt;p&gt;The option value.&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+          <tag name="param" line="250" description="&lt;p&gt;The option name as passed.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="250" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="274" package="Aura.Cli">
+        <name>longOptionRejectsValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::longOptionRejectsValue()</full_name>
+        <docblock line="274">
+          <description>Does the long option reject a param value?</description>
+          <long-description></long-description>
+          <tag name="param" line="274" description="&lt;p&gt;An option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="param" line="274" description="&lt;p&gt;The option value.&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+          <tag name="param" line="274" description="&lt;p&gt;The option name as passed.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="274" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="294" package="Aura.Cli">
+        <name>setShortFlagValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::setShortFlagValue()</full_name>
+        <docblock line="294">
+          <description>Parses a short option or cluster of short options.</description>
+          <long-description></long-description>
+          <tag name="param" line="294" description="&lt;p&gt;The current input element, e.g. &quot;-f&quot; or &quot;-fbz&quot;.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="294" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="317" package="Aura.Cli">
+        <name>shortOptionRejectsValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::shortOptionRejectsValue()</full_name>
+        <docblock line="317">
+          <description>Does the short option reject a value?</description>
+          <long-description></long-description>
+          <tag name="param" line="317" description="&lt;p&gt;An option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="return" line="317" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="335" package="Aura.Cli">
+        <name>shortOptionCapturesValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::shortOptionCapturesValue()</full_name>
+        <docblock line="335">
+          <description>Does the short option capture the next input element as a value?</description>
+          <long-description></long-description>
+          <tag name="param" line="335" description="&lt;p&gt;An option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="return" line="335" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="357" package="Aura.Cli">
+        <name>shortOptionRequiresValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::shortOptionRequiresValue()</full_name>
+        <docblock line="357">
+          <description>Does the short option require the next input element to be a value?</description>
+          <long-description></long-description>
+          <tag name="param" line="357" description="&lt;p&gt;An option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="param" line="357" description="&lt;p&gt;The option name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="357" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="377" package="Aura.Cli">
+        <name>setShortFlagValues</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::setShortFlagValues()</full_name>
+        <docblock line="377">
+          <description>Parses a cluster of short options.</description>
+          <long-description></long-description>
+          <tag name="param" line="377" description="&lt;p&gt;The short-option cluster (e.g. &quot;-abcd&quot;).&lt;/p&gt;" type="string" variable="$chars">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="377" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$chars</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="401" package="Aura.Cli">
+        <name>setValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::setValue()</full_name>
+        <docblock line="401">
+          <description>Sets an option value, adding to a value array for multi-values.</description>
+          <long-description></long-description>
+          <tag name="param" line="401" description="&lt;p&gt;The option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="param" line="401" description="&lt;p&gt;The option value.&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="401" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="421" package="Aura.Cli">
+        <name>addMultiValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::addMultiValue()</full_name>
+        <docblock line="421">
+          <description>Adds to an array of multi-values for the option.</description>
+          <long-description></long-description>
+          <tag name="param" line="421" description="&lt;p&gt;The option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="param" line="421" description="&lt;p&gt;The value to add to the array of multi-values.&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="421" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="440" package="Aura.Cli">
+        <name>setSingleValue</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::setSingleValue()</full_name>
+        <docblock line="440">
+          <description>Sets the single value for an option.</description>
+          <long-description></long-description>
+          <tag name="param" line="440" description="&lt;p&gt;The option struct.&lt;/p&gt;" type="\StdClass" variable="$option">
+            <type>\StdClass</type>
+          </tag>
+          <tag name="param" line="440" description="&lt;p&gt;The value to set.&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="440" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="455" package="Aura.Cli">
+        <name>getOptions</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::getOptions()</full_name>
+        <docblock line="455">
+          <description>Returns the defined options.</description>
+          <long-description></long-description>
+          <tag name="return" line="455" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="467" package="Aura.Cli">
+        <name>getValues</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::getValues()</full_name>
+        <docblock line="467">
+          <description>Returns the parsed values of named options and sequential arguments.</description>
+          <long-description></long-description>
+          <tag name="return" line="467" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="479" package="Aura.Cli">
+        <name>getErrors</name>
+        <full_name>\Aura\Cli\Context\GetoptParser::getErrors()</full_name>
+        <docblock line="479">
+          <description>Returns the parsing errors.</description>
+          <long-description></long-description>
+          <tag name="return" line="479" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJztWm1z2zYS/u5fgXg8ldxIVu8+xlVSN2nazvR6mbzcl+TGA5GQxYYiVACM4zb+791dACT4TunU9mZaTSa2RXCx2H322Qcgv3yy2+xOFp9/fsLwH3u9STRbJ6lg8HPHlWFyza5yxdlaKvbiuxcXbuBXaRKJTAu2MWb3aLGQO/hL5ioSF1LdLNxVvVjpeO7+uICp2NevnlkLi5OMb4Xe8UjQBO+epsm7pzIz4qO5PDnJdfD1Nx8jsTOJzC7p+1cmfppyrWFY6fkLrmA+FsntlmcxS5MM1pDtckOe41wxk2SE4fUs3wqVRIyrG/gtM+wDT3Ohi+WBX+/5jfXhAnzwTkc4MftWGLBFU6qTX08YfMgT/Pgf7Cq7wxDqJLthQimp0HplxFcfuAIPFL+rXljQz52SRkQG/D6zt8N622d6vRFtCzeSrQS5IOKDpyZTnTO/gXSYjYD/XWxjsU6yBH/V7HYjsiICZOdgL6z1/gjYDLr1srWSW3StJTAHe2Fn6HTiiq15ZKS6w8hHSnBThEWufgIb7QD4Nw15bm8dFYdrN0+nJ1BH2qgcBzWmhPjwbXXSut39V+IczVdQ62ydZxGNvb6OvCPT3gnP6XZbSPg5M8BD88c1r5bN9ePg+64ovBJGEwQcelxB5AiPEdi0gSJcFAAkoNmvgBibmB8VFi2MjYaeVq33hkHD+mn49PyyGAHcJni0YdPCQa7ZGYQcl7V8zM5ioSN1Htgku87xZXug548zcfs9JI5nkZg6azNv67JqquLiW2cZLADh/rfMWHnTfX/OHI1j1iyJ2QjxKJIqxkVBDvEixbyg9GZhVZJnLb2u2mzcooTJVcZWUqbsOU+B05I1zqUEu8X/qlw+Y4Dr+pBMemuthN8OByKs79GxacXfIt0dsPCjPEXXLlsP2kDjBji+DAYUIxYLtk45BVuDQ1Qst2LyQTCCG8QdcyCAVYsq0KX5WALTLoFCIIZVo1r8nEOzTXhaNt5I5lnoPVxAp76o3plKuYNJlcxvNozDTTuqwBInbjVhzyvuv92gopmGccOSqAAZvdska8OonkQqyLmii0C/9/NVwm81T7UkYAU+qtdkszrzZWNivjYCOhDbpTwBOpEAEDGPud7MGE9TvzSukHogONNMGlahDP8BNE7t9Es2mc8n9cIP04PwvWxcBcI2SVa/ct9wOZVQCdaHGQROKlP8hXKrpq6eNLx84Pz47DOm8xVQDPk9Y1/M2D/Pe923oQQO/QFcsDz6HwwQGaix0z0kUouB+f7h5huY7hUu8jlUxcBs3UZsHt9ahD98SPQIv9dD3RJ0CDh6X/ztqKpa6U9sxbFHQWo7efZb7I2cIaGlLeINcfBBKNQcUFE8a6fMH6R8j4yIChvG5FmVldltAuiNOGp2uExuMtD8GoT1jK2genCANyaRR28TGAt6JxIgWdmbwqBFGHKSrQNDmiTGbqcEChJ0g3tTRP4z0vmlTwFiGzYMp3WAk3YATyumOrqLa7Nn2OuouwTxey9IOwFtvcfwdDUbv5WBzYIPmtVLozrHjRcSU/Kh3icQ94kG6E7rXZq68/lIWeDHBz28DeiNuwvvvr67ShOunZOXbQB3JWpNNPwKYf4Wywb0CSs2he/sLD9K88ymetoowNPXhQpkE3Jjghtc5FEHj4vTyk11lTNCMBVg7VunL9xQFQ3UaAGM1R1L8AuM5QAiaQwLFt1+Uw2En7Ic6vUlfWkl2JabaJMUdeOw6SgexkLaSsnjix5mXkNPB42dmA2Y4aZ1+vreponqAjd0ex3dpfStqmQUwO04ou7oBaoN0XLpgtXG/W3JKnNa/W14E0Lsb6ky5KKBTJbSNcqVQkliv3ECZcbExc0FO53P11KeQl68GfhmxdVyxX857RO6lPKReWlruVbR1DKTJtrYIpi5PfN5WTl6lyaBHat7z7wy8ia6yaRRXdVemBaWX4LWTJTQzlOvTqxDMxYwpv98+tRmhba7hxiBeNVug5xup0VEUHRMoGvTPuKRj9TQnhbDZwEVgMiBIsmg5VA3wtZH9v48eNm9zFVWbpfrTvd62g3DHgDVN0o7iVsJWCz84sbM2GQ5CeBDpEDjlm7L0mg/5Gdzn0XXbFUviQ6HGqSz4/WncwcUKM5f7zjecG00ufoQNGt9Rx2Ugt3PVQtwAFbPpGiCStkKwo0JgYYsPWkHVCFkfOUOCBp/3zb5WJyshQ1rDHgL3VXBE54A6rYTz4D2RkLtEDKpyq+i3VjPseRdVOMJ7kVaGOEw9fMC7TsvRwog54j2+RWwCe2XQS6C1Z1jA35u338I3pBr/4bbHl1nBNp+olmaaHvwv6PNmh6HthgzjoKbR2jrzwCdO1vklfMK1LJRmms8gYEeFV4aUtkFIPp75xobJ/5cdTfL/WRY/SiiCw/gaCq8YmKP8WTl17bYdh1y9G7ZRki0Do1GMe4GeqeeKm97yndgUOx9XxeN7yvj9mioFawVDHdcbtufakalYDy5dLBIb+hq2DhmU6nEPLJYoQuZ+FirUiTw/6t09EA7ELZeHcJA0TheLkYl+toPfMDEdmfuCvYPzkFdV7EnoQ/oJLQmj72d0WnuPPv+g3PvFWxH7u3DgmOnf1g1HLuAh0htvCb9S4jPQgcc2PejDRignNJdc080ztrU9X2+iuLT89+j40NfJh/q2cXHBIqek4GwFpyel+JjJIC9fRXCeYh7btpG2xMD9xCATJbkYVdJu+drGjz1hEFXkC2CDPlHbHit/vDL+tq1rT6d04DTgRPX7gMg/Ljz4/0afv/znuHOtd8ZYHmQ6wiXx/6BtmMgd1KCR4TbPDXJvHgnqQ2NDWIKquyIe6CD4Nq6cenlIlpwB/tAoP6Fl9utDp26lNqWYD5opD+VV3Gsw0diyB1hsih75Tsnv3vu7G/oUBz7dyNaHTtCYvvzUJco1WeelfdCqJHY2y7b4dB6Jt9hksa22xx7Nu8YMDiiz/7wBAJCj9QrenC+R5KOn6L9ExQ+ixp64yc8/GwNVtfDUz2th6W6XXUTDoiK0FX3CqJjBCjE8PVTbdtv802YoyzJ6YP+Ffn3GPdaUM9rrAf4+Q1ZGvDTv/bq/Lw/+Q0Sv6Ev</source>
+  </file>
+  <file path="Context/OptionFactory.php" generated-path="Context.OptionFactory.html" hash="c1d0fc020a89fc754386e29bbc6751a1" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="18" package="Aura.Cli">
+      <extends/>
+      <name>OptionFactory</name>
+      <full_name>\Aura\Cli\Context\OptionFactory</full_name>
+      <docblock line="18">
+        <description>A factory for option objects.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="32" package="Aura.Cli">
+        <name>newInstance</name>
+        <full_name>\Aura\Cli\Context\OptionFactory::newInstance()</full_name>
+        <docblock line="32">
+          <description>Returns a new option struct from an option definition string and
+description.</description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="&lt;p&gt;The option definition string.&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="32" description="&lt;p&gt;The option description.&lt;/p&gt;" type="string" variable="$descr">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="32" description="" type="\Aura\Cli\Context\StdClass">
+            <type>\Aura\Cli\Context\StdClass</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$descr</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="63" package="Aura.Cli">
+        <name>newUndefined</name>
+        <full_name>\Aura\Cli\Context\OptionFactory::newUndefined()</full_name>
+        <docblock line="63">
+          <description>Given an undefined option name, returns a default option struct for it.</description>
+          <long-description></long-description>
+          <tag name="param" line="63" description="&lt;p&gt;The undefined option name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="63" description="An option struct." type="\Aura\Cli\Context\StdClass">
+            <type>\Aura\Cli\Context\StdClass</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="83" package="Aura.Cli">
+        <name>setNewOptionParam</name>
+        <full_name>\Aura\Cli\Context\OptionFactory::setNewOptionParam()</full_name>
+        <docblock line="83">
+          <description>Sets the $param property on a new option struct.</description>
+          <long-description></long-description>
+          <tag name="param" line="83" description="&lt;p&gt;The option struct.&lt;/p&gt;" type="\Aura\Cli\Context\StdClass" variable="$option">
+            <type>\Aura\Cli\Context\StdClass</type>
+          </tag>
+          <tag name="param" line="83" description="&lt;p&gt;The option definition string.&lt;/p&gt;" type="" variable="$string"/>
+          <tag name="return" line="83" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\Aura\Cli\Context\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="true">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="107" package="Aura.Cli">
+        <name>setNewOptionMulti</name>
+        <full_name>\Aura\Cli\Context\OptionFactory::setNewOptionMulti()</full_name>
+        <docblock line="107">
+          <description>Sets the $multi property on a new option struct.</description>
+          <long-description></long-description>
+          <tag name="param" line="107" description="&lt;p&gt;The option struct.&lt;/p&gt;" type="\Aura\Cli\Context\StdClass" variable="$option">
+            <type>\Aura\Cli\Context\StdClass</type>
+          </tag>
+          <tag name="param" line="107" description="&lt;p&gt;The option definition string.&lt;/p&gt;" type="" variable="$string"/>
+          <tag name="return" line="107" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\Aura\Cli\Context\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="true">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="126" package="Aura.Cli">
+        <name>setNewOptionNameAlias</name>
+        <full_name>\Aura\Cli\Context\OptionFactory::setNewOptionNameAlias()</full_name>
+        <docblock line="126">
+          <description>Sets the $name and $alias properties on a new option struct.</description>
+          <long-description></long-description>
+          <tag name="param" line="126" description="&lt;p&gt;The option struct.&lt;/p&gt;" type="\Aura\Cli\Context\StdClass" variable="$option">
+            <type>\Aura\Cli\Context\StdClass</type>
+          </tag>
+          <tag name="param" line="126" description="&lt;p&gt;The option definition string.&lt;/p&gt;" type="" variable="$string"/>
+          <tag name="return" line="126" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\Aura\Cli\Context\StdClass</type>
+        </argument>
+        <argument line="0" by_reference="true">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Context" line="144" package="Aura.Cli">
+        <name>fixOptionName</name>
+        <full_name>\Aura\Cli\Context\OptionFactory::fixOptionName()</full_name>
+        <docblock line="144">
+          <description>Normalizes the option name.</description>
+          <long-description></long-description>
+          <tag name="param" line="144" description="&lt;p&gt;The option character or long name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="144" description="fixed name with a leading dash or dashes." type="\Aura\Cli\Context\The">
+            <type>\Aura\Cli\Context\The</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJzlVktv00AQvvtXjKoIJ1UehGNCCqGIx4FS0XKiFdrY62bBWZvdNW2p8t+ZfSWxYydpj2BFsuOZ+ebxzcz65at8ngeD4+MA9A8u50xCwlIKeM+JUJAlMC0EgSQTcP7hvO8UX6csolxSmCuVjwaDLMd/WSEi2s/EzcBJ5WAm457700dX8ObirUUYBJwsqMxJRI2Dq9OUXZ1mXNE7NQ42QppCQiKViXsTQpYrlnHIZj9opOQqGoT5SW4sUh+RvI8oJVLCZ2P0zsIEDwHgZRzoy9/gC1WF4BIIcHrrHUklikhBIrIFEO7fxjRhnHkFxm9QFnucmMpIMKPYr7jAOAVZeJuWu1/OaSPwHgTjqwzQ7FyYBOFCxae6LGXxwNzzYoZsQVLwyMBhJT5yqQiPaNuF2/VeJ8CLNO0YO1tTfbEE2kx+Z1x5g05nQ6wvn/fEIY3L0k30tWgZrB5bLtcJtG0fdIAIQe7bJZxQ91cIMDkxSN2ykKSMyLBBuChSxYwwIamkFalhwEhDQbV7GocVFZOCUbHZrMWd8UYeCqetdyKpOqO3tkc/ac9tl2DXV6oz3mVzruN5pM1T/JxhPae6bLvsXI85DfveUbc9ce/Zb8r1WBXcND6NfRtr7roOTE8kigmGXJ1KXAhM7RkRDWUmpNbJviGBKS877R84Nl+9t7aJoG5MEDCl3MlhMoFhdVJ8NS0ZpWE0RrXj0Wx09GDMlqPRUWcPNRdUSVBYtZatZi5wwwt1D5hdzYJs4GBVRT+yG5tqp+GTVqNLXA90LUkiU2Za1zztGKNnvrfriCtmKFwvxN4LQ184GoVbu87i9U5sXqhkX5A0rKy91VKsoj83DjaoBopLqTaOoYvjgDAE/VUwgavrMWEM6ztubSTwYbG20ZEc3Ghm6/4HjVbZvY9qNEfwcTPBtooTwKTp06k9kDKzW/HTB1rmPPXkMSr/XfpqjsEmCk19JBac3uVpFtN22A1rD1tPnqnnxK/uhN2tXdqNL789v94wtB9bGJ2XDq+3v7Y8uKVoN/rwuqENtrvgLBMLhPxDbS/sOlMbDmRnEs1RjPXGj3sBaYYquw5mbYihIzsG55apOTZaSkmswWMi5xpG36msP6u36a0pRS2VZqz0frOfJyH0wgoZBx/pRz2jc1StdkmlpLMMlsFfjazYYQ==</source>
+  </file>
+  <file path="Context/Server.php" generated-path="Context.Server.html" hash="d9112d22f33fa87c4e67b7fa22dce097" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Context" line="18" package="Aura.Cli">
+      <extends>\Aura\Cli\Context\AbstractValues</extends>
+      <name>Server</name>
+      <full_name>\Aura\Cli\Context\Server</full_name>
+      <docblock line="18">
+        <description>A read-only representation of $_SERVER values.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Context\AbstractValues" refers="\Aura\Cli\Context\AbstractValues" link="/classes/Aura.Cli.Context.AbstractValues.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Context" line="27" package="Aura.Cli">
+        <name>$values</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::values</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>The values represented by this object.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="36" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::__construct()</full_name>
+        <docblock line="36">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="36" description="&lt;p&gt;The values to be represented by this object.&lt;/p&gt;" type="array" variable="$values">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Context" line="55" package="Aura.Cli">
+        <name>get</name>
+        <full_name>\Aura\Cli\Context\AbstractValues::get()</full_name>
+        <docblock line="55">
+          <description>Returns a value.</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="&lt;p&gt;The key, if any, to get the value of; if null, will&#10;return all values.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="55" description="&lt;p&gt;The alternative default value to return if the&#10;requested key does not exist.&lt;/p&gt;" type="string" variable="$alt">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="55" description="The requested value, or the alternative default&#10;value." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$alt</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Aura\Cli\Context\AbstractValues</inherited_from>
+      </method>
+    </class>
+    <source>eJxNjsFqAkEMhu/zFDn0JLhzr4LdqtCjuMWTUOJs1h06nRmSrFTEd++o21IIJCHh+/75IvfZ2MnEwK3gvfcCnQ8EpWdkhdRBPTBClxg2b5tqfHwJ3lEUgl41P1ubctnSwI6qxEc7XsUepJ2OS1VU8NqsHgRrIn6RZHR0F+yXwe+XKSp968z8i1QDE7bTFMO5TJlJKCqqT/GW7emjWW936y2cMAwkf/EK9xOPD3RV0L9SF1AEGuITMRQVxVagPogyOt3dGeZiruYHv/JYHw==</source>
+  </file>
+  <file path="Context.php" generated-path="Context.html" hash="1b43001b47aea24111f855f3824af21f" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Argv">\Aura\Cli\Context\Argv</namespace-alias>
+    <namespace-alias name="Env">\Aura\Cli\Context\Env</namespace-alias>
+    <namespace-alias name="Getopt">\Aura\Cli\Context\Getopt</namespace-alias>
+    <namespace-alias name="GetoptFactory">\Aura\Cli\Context\GetoptFactory</namespace-alias>
+    <namespace-alias name="Server">\Aura\Cli\Context\Server</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli" line="24" package="Aura.Cli">
+      <extends/>
+      <name>Context</name>
+      <full_name>\Aura\Cli\Context</full_name>
+      <docblock line="24">
+        <description>Collection point for information about the command line execution context.</description>
+        <long-description></long-description>
+        <tag name="package" line="24" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="33" package="Aura.Cli">
+        <name>$argv</name>
+        <full_name>\Aura\Cli\Context::argv</full_name>
+        <default></default>
+        <docblock line="33">
+          <description>Imported $argv values.</description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="" type="\Aura\Cli\Context\Argv" variable="">
+            <type>\Aura\Cli\Context\Argv</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="42" package="Aura.Cli">
+        <name>$env</name>
+        <full_name>\Aura\Cli\Context::env</full_name>
+        <default></default>
+        <docblock line="42">
+          <description>Imported $_ENV values.</description>
+          <long-description></long-description>
+          <tag name="var" line="42" description="" type="\Aura\Cli\Context\Env" variable="">
+            <type>\Aura\Cli\Context\Env</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="51" package="Aura.Cli">
+        <name>$getopt_factory</name>
+        <full_name>\Aura\Cli\Context::getopt_factory</full_name>
+        <default></default>
+        <docblock line="51">
+          <description>A factory for Getopt objects.</description>
+          <long-description></long-description>
+          <tag name="var" line="51" description="" type="\Aura\Cli\Context\Getopt" variable="">
+            <type>\Aura\Cli\Context\Getopt</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="60" package="Aura.Cli">
+        <name>$server</name>
+        <full_name>\Aura\Cli\Context::server</full_name>
+        <default></default>
+        <docblock line="60">
+          <description>Imported $_SERVER values.</description>
+          <long-description></long-description>
+          <tag name="var" line="60" description="" type="\Aura\Cli\Context\Server" variable="">
+            <type>\Aura\Cli\Context\Server</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="75" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Context::__construct()</full_name>
+        <docblock line="75">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Imported $_ENV values.&lt;/p&gt;" type="\Aura\Cli\Context\Env" variable="$env">
+            <type>\Aura\Cli\Context\Env</type>
+          </tag>
+          <tag name="param" line="75" description="&lt;p&gt;Imported $_SERVER values.&lt;/p&gt;" type="\Aura\Cli\Context\Server" variable="$server">
+            <type>\Aura\Cli\Context\Server</type>
+          </tag>
+          <tag name="param" line="75" description="&lt;p&gt;Imported $argv values.&lt;/p&gt;" type="\Aura\Cli\Context\Argv" variable="$argv">
+            <type>\Aura\Cli\Context\Argv</type>
+          </tag>
+          <tag name="param" line="75" description="&lt;p&gt;A factory for Getopt objects.&lt;/p&gt;" type="\Aura\Cli\Context\GetoptFactory" variable="$getopt_factory">
+            <type>\Aura\Cli\Context\GetoptFactory</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$env</name>
+          <default></default>
+          <type>\Aura\Cli\Context\Env</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$server</name>
+          <default></default>
+          <type>\Aura\Cli\Context\Server</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$argv</name>
+          <default></default>
+          <type>\Aura\Cli\Context\Argv</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$getopt_factory</name>
+          <default></default>
+          <type>\Aura\Cli\Context\GetoptFactory</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="96" package="Aura.Cli">
+        <name>__get</name>
+        <full_name>\Aura\Cli\Context::__get()</full_name>
+        <docblock line="96">
+          <description>Magic read for property objects.</description>
+          <long-description></long-description>
+          <tag name="param" line="96" description="&lt;p&gt;The property to get.&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="96" description="A property object." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="110" package="Aura.Cli">
+        <name>getopt</name>
+        <full_name>\Aura\Cli\Context::getopt()</full_name>
+        <docblock line="110">
+          <description>Returns a new Getopt instance.</description>
+          <long-description></long-description>
+          <tag name="param" line="110" description="&lt;p&gt;Option definitions for the Getopt instance.&lt;/p&gt;" type="array" variable="$options">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="110" description="" type="\Aura\Cli\Context\Getopt">
+            <type>\Aura\Cli\Context\Getopt</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJyVVU2P2jAQvedXzIEDrBZy75btUkrbPbRdLdWekJAJk+BuYke2Q0Gr/e+d2A4RARIaIazMh9/Mm2fn46d8kwfhzU0A5Q9+b7iGmKcItOZMGZAxTArFIJYKnr4/jXzgQ8ojFBphY0z+IQxlTm+yUBGOpEpC79XhSq+H/mVEUPB5/sXtEAaCZahzFqEFWExTfhcEha5fF1MpDO7MYqKS7d1510xc8nxDI3PT6vzKIiPV/kLMHNUWFdVU0zOVaYqR4VJALrkwlhUu6D9j1spWsjBgNgiRzDIm1pBygYA7jAobELnNDzRS/68scegjQq/IiVKmNfhSgrcA6LF1lE+1wGOWS2VwDT1GFMGWpQXqUSPoYcsUlBQe20O75koa6qjagrrtQlrOfr60IdFEOoBQXMaZQOyGYql1YwK5+kOp5+FcSAdiYoOWcTXv7ibns+eX2XNbn04eHcC60tB5QJqvNqooqzrBoNPHspJNS9iVA3BJrrQK/fq2XHYpFS+o6/Tl0o6OVJPy/5mrJ7FY0b0BcSHceVsuo4qsvgukp2Ln9mA5br22103VttaKbdQA3g7RPUN34/C+nMXYa7jh8nSP67E3AiyJ4+qkNZwNwsanqi2D3y9J6QdLiC6FbG0ZJg3mqMz+4tlxQyNCuUig94p7uvuxTjMSCP4kS6EplICM70gUkybKlYOkjfsl4sD6a4b95p6PMqKj52eboIGBwL+VqDiphAn6Dp3vmCnFaNgUScVo+GVXWGPMBXemkr7yBu/az5fbcgE1Onfz7B9X0E7CsQSG99Tno6+nPgUNhdms/uD22O/hDsZBxe178A8knUH9</source>
+  </file>
+  <file path="Exception/ExtensionNotAvailable.php" generated-path="Exception.ExtensionNotAvailable.html" hash="11ef1f7ba2d53235a91629655e9981e1" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Exception" line="20" package="Aura.Cli">
+      <extends>\Aura\Cli\Exception</extends>
+      <name>ExtensionNotAvailable</name>
+      <full_name>\Aura\Cli\Exception\ExtensionNotAvailable</full_name>
+      <docblock line="20">
+        <description>Trying to use functionality that isn't available.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Exception" refers="\Aura\Cli\Exception" link="/classes/Aura.Cli.Exception.html"/>
+      </docblock>
+    </class>
+    <source>eJx1j08LAiEQxe9+irkFQeu9gv4udIqgjl0mm92VTEVno4i+e1pbdAkEmXnP936OJ77xQvb7AvKBXaMjVNoQpNtjYHAVzNqAULkAm9Wm6IxToxXZSNAw+6GUzqfJtUFR4UItOzXKQzwOuqFIVTDfLt8JUlg8U/So6FWwXxi9L6+KPGtnR0K08Y/wQxtu2tbADrK5aq3KFjSab8ANcvqE7THgBbXBg6EvfGo9Yf3OL1L+B0kZjBHKKyfelLR2PPu8BcrbY1Y7FHEXD/EEyWJnvw==</source>
+  </file>
+  <file path="Exception/FunctionNotAvailable.php" generated-path="Exception.FunctionNotAvailable.html" hash="a688afa00cde37f1c5daa537f8db3f02" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Exception" line="20" package="Aura.Cli">
+      <extends>\Aura\Cli\Exception</extends>
+      <name>FunctionNotAvailable</name>
+      <full_name>\Aura\Cli\Exception\FunctionNotAvailable</full_name>
+      <docblock line="20">
+        <description>Trying to use functionality that isn't available.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Exception" refers="\Aura\Cli\Exception" link="/classes/Aura.Cli.Exception.html"/>
+      </docblock>
+    </class>
+    <source>eJx1T8FKQzEQvOcr5iYUfLlbQatVPJVCPfayTfe9F4xJyO6TluK/m2dfixdhYRlmdmb2/iH32djZzGAcvPde0PrAqDtTUaQWi6EQ2lSwfls3k/AxeMdRGL1qvrM25YrSUBw3qXR2YsXuZH87gaZG4WmzPDtYE+mTJZPj34Dtc/Dbl4PjrD7FuTGD/EP8aVuOPnbQhFHcDtGNEgpej9CetD4RbxT0RT7QLvC1fE39oO7s31T/SyUXSASvk9Eq6eJyCj4ox73g2sSczLf5AV3aZ0g=</source>
+  </file>
+  <file path="Exception/OptionNotDefined.php" generated-path="Exception.OptionNotDefined.html" hash="3f27557394a7bc6c786bad50c57254ec" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Exception" line="20" package="Aura.Cli">
+      <extends>\Aura\Cli\Exception</extends>
+      <name>OptionNotDefined</name>
+      <full_name>\Aura\Cli\Exception\OptionNotDefined</full_name>
+      <docblock line="20">
+        <description>Asked for an option that is not defined.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Exception" refers="\Aura\Cli\Exception" link="/classes/Aura.Cli.Exception.html"/>
+      </docblock>
+    </class>
+    <source>eJx1js0KAjEMhO99ipwFt3cV/AdPKujRS22zbnFtSpMFQXx36+6qJyEQhklmvsk0VlHpwUDBe+BYeYbS1wh5R5MEqIR5kwyUlGC/2Rf94az2FgMjVCJxpDXFrKhJFgtKF927rM/shr0ochUsDqsuQatgbsjRWGwLTsvan9Z3i1E8hbFSDf8xfrRzvqJryUwAan2QysgbPpCAw9IHdF/mXHY1ly62yLEfElsbZti1AVuSVfcGeBcMjuFbrh7qqV7HI2Gg</source>
+  </file>
+  <file path="Exception/OptionParamRejected.php" generated-path="Exception.OptionParamRejected.html" hash="95ec661303dfdba0f562ca8943bbadcd" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Exception" line="20" package="Aura.Cli">
+      <extends>\Aura\Cli\Exception</extends>
+      <name>OptionParamRejected</name>
+      <full_name>\Aura\Cli\Exception\OptionParamRejected</full_name>
+      <docblock line="20">
+        <description>The option requires that no parameter be present.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Exception" refers="\Aura\Cli\Exception" link="/classes/Aura.Cli.Exception.html"/>
+      </docblock>
+    </class>
+    <source>eJx1jk1LxDAURff5FXc9YLNXwW9wZ1GXs8mkt9NoTWLeKwyI/920Uwc3woPwch/nnsurPGRjNxuDefA6BEEfRqK+2RVF6nEzFYc+FbSPbbMeXo/BMwoxqOZza1OuW5qKZ5PK3q6p2J10Z+vS1CrcvtwfCdZE90HJznMp2N6NYftw8MwaUrwwZpJ/gr+2RFq+Ufg5hUKBDk4R0yxf+cqCHZFrwqgn+dr67vZHflP5v0p+dCJ4WpDtDHjmG72yAw/K2AlOIubLfJsf7ERm1A==</source>
+  </file>
+  <file path="Exception/OptionParamRequired.php" generated-path="Exception.OptionParamRequired.html" hash="d2a0e900af26f3a6200ba649017d7117" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Exception" line="20" package="Aura.Cli">
+      <extends>\Aura\Cli\Exception</extends>
+      <name>OptionParamRequired</name>
+      <full_name>\Aura\Cli\Exception\OptionParamRequired</full_name>
+      <docblock line="20">
+        <description>The option requires a non-blank parameter.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Exception" refers="\Aura\Cli\Exception" link="/classes/Aura.Cli.Exception.html"/>
+      </docblock>
+    </class>
+    <source>eJx1j8tqwzAQRff6irsORNongbZpAt3FtF1mo8hjW0SVFI0MgdJ/r/yoyaYwMMzr3Du7p9hFoVYrgSHw2VlGYx2h5KhTRmjw0ieNJiRUb5WcF5+dNeSZ0OUcN0qFWKrQJ0MypFbNU1YXrtdzIYsU9h+HiaCE11/EURsaBc6vzp6Pd0Mx2+C3QvT8z+DRLSGMbSS69TYRQ8MHv7447a/DA0UjU1pcF7mrbiewLOA/L8ZpZpxGVjVcvU+8GnTP5GvG4kB8ix/xC/x5ZDo=</source>
+  </file>
+  <file path="Exception/SignalNotCatchable.php" generated-path="Exception.SignalNotCatchable.html" hash="bff2a6972c80452307940327a4bdf39e" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Exception">\Aura\Cli\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli\Exception" line="20" package="Aura.Cli">
+      <extends>\Aura\Cli\Exception</extends>
+      <name>SignalNotCatchable</name>
+      <full_name>\Aura\Cli\Exception\SignalNotCatchable</full_name>
+      <docblock line="20">
+        <description>Trying to catch a signal that isn't catchable or that isn't a signal.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+        <tag name="inherited_from" description="\Aura\Cli\Exception" refers="\Aura\Cli\Exception" link="/classes/Aura.Cli.Exception.html"/>
+      </docblock>
+    </class>
+    <source>eJx1T01LAzEQvedXvJtQcHNXwY8qeJJCPfYyTWc3wZiEzCxUxP9u7G6XXoSBYeY93sfdffHF2NXK4G/w7oOgD5HRdqGqyD0ex0roc8XmddPNxIcYHCdheNVyY20u7cpjddzlOtgZFbuXw/V8dM0KT9vnScGaRJ8shRyfDHbrGHYvR8dFQ063xozyD3CRtn6FNEAzHKnzIEgYEkWoJ20N0pVOCO1bo1bg4n/mLoVakg8aJs+ueZ5jukgi2J7Ib1nXix4fldNBsGQz3+bH/AKZL2xu</source>
+  </file>
+  <file path="Exception.php" generated-path="Exception.html" hash="5bedfa7efb53b7e8fdbec4ba44eb616d" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli" line="18" package="Aura.Cli">
+      <extends>\Exception</extends>
+      <name>Exception</name>
+      <full_name>\Aura\Cli\Exception</full_name>
+      <docblock line="18">
+        <description>Generic package exception.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+      </docblock>
+    </class>
+    <source>eJxNTs0KwjAMvvcpchZs7yr4jx4HetyldtlWrG1oOhDEd7fTbQiBkHy/qzW1JNRsJqAfuLaWobYOIW/SMUGoYdtFDXWIUJwLORA3zhr0jNCmRAulAuUrdNGgDLFRA8rqxtV8OGSOgt3l8HNQwusHMmmD34By7+xS/FU5ocdoTW5h7rpBwKdBSjb4qcKI9HKZ5aOxcZoZjiM/KxP6iqGcXuIl3uID3yFN9w==</source>
+  </file>
+  <file path="Help.php" generated-path="Help.html" hash="f84c9d8fcc682f83f24025476b1e02bc" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="OptionFactory">\Aura\Cli\Context\OptionFactory</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli" line="20" package="Aura.Cli">
+      <extends/>
+      <name>Help</name>
+      <full_name>\Aura\Cli\Help</full_name>
+      <docblock line="20">
+        <description>Represents the "help" information for a command.</description>
+        <long-description></long-description>
+        <tag name="package" line="20" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="29" package="Aura.Cli">
+        <name>$descr</name>
+        <full_name>\Aura\Cli\Help::descr</full_name>
+        <default></default>
+        <docblock line="29">
+          <description>The long-form help text.</description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="38" package="Aura.Cli">
+        <name>$option_factory</name>
+        <full_name>\Aura\Cli\Help::option_factory</full_name>
+        <default>array()</default>
+        <docblock line="38">
+          <description>A option factory.</description>
+          <long-description></long-description>
+          <tag name="var" line="38" description="" type="\Aura\Cli\Context\OptionFactory" variable="">
+            <type>\Aura\Cli\Context\OptionFactory</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="47" package="Aura.Cli">
+        <name>$options</name>
+        <full_name>\Aura\Cli\Help::options</full_name>
+        <default>array()</default>
+        <docblock line="47">
+          <description>The option definitions.</description>
+          <long-description></long-description>
+          <tag name="var" line="47" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="56" package="Aura.Cli">
+        <name>$summary</name>
+        <full_name>\Aura\Cli\Help::summary</full_name>
+        <default></default>
+        <docblock line="56">
+          <description>A single-line summary for the command.</description>
+          <long-description></long-description>
+          <tag name="var" line="56" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="65" package="Aura.Cli">
+        <name>$usage</name>
+        <full_name>\Aura\Cli\Help::usage</full_name>
+        <default></default>
+        <docblock line="65">
+          <description>One or more single-line usage examples.</description>
+          <long-description></long-description>
+          <tag name="var" line="65" description="" type="string|array" variable="">
+            <type>string</type>
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="74" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Help::__construct()</full_name>
+        <docblock line="74">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="74" description="&lt;p&gt;An option factory.&lt;/p&gt;" type="\Aura\Cli\Context\OptionFactory" variable="$option_factory">
+            <type>\Aura\Cli\Context\OptionFactory</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option_factory</name>
+          <default></default>
+          <type>\Aura\Cli\Context\OptionFactory</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="87" package="Aura.Cli">
+        <name>init</name>
+        <full_name>\Aura\Cli\Help::init()</full_name>
+        <docblock line="87">
+          <description>Use this to initialize the help object in child classes.</description>
+          <long-description></long-description>
+          <tag name="return" line="87" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="101" package="Aura.Cli">
+        <name>setOptions</name>
+        <full_name>\Aura\Cli\Help::setOptions()</full_name>
+        <docblock line="101">
+          <description>Sets the option definitions.</description>
+          <long-description></long-description>
+          <tag name="param" line="101" description="&lt;p&gt;The option definitions.&lt;/p&gt;" type="array" variable="$options">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="101" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="113" package="Aura.Cli">
+        <name>getOptions</name>
+        <full_name>\Aura\Cli\Help::getOptions()</full_name>
+        <docblock line="113">
+          <description>Gets the option definitions.</description>
+          <long-description></long-description>
+          <tag name="return" line="113" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="127" package="Aura.Cli">
+        <name>setSummary</name>
+        <full_name>\Aura\Cli\Help::setSummary()</full_name>
+        <docblock line="127">
+          <description>Sets the single-line summary.</description>
+          <long-description></long-description>
+          <tag name="param" line="127" description="&lt;p&gt;The single-line summary.&lt;/p&gt;" type="string" variable="$summary">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="127" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$summary</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="139" package="Aura.Cli">
+        <name>getSummary</name>
+        <full_name>\Aura\Cli\Help::getSummary()</full_name>
+        <docblock line="139">
+          <description>Gets the single-line summary.</description>
+          <long-description></long-description>
+          <tag name="return" line="139" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="153" package="Aura.Cli">
+        <name>setUsage</name>
+        <full_name>\Aura\Cli\Help::setUsage()</full_name>
+        <docblock line="153">
+          <description>Sets the usage line(s).</description>
+          <long-description></long-description>
+          <tag name="param" line="153" description="&lt;p&gt;The usage line(s).&lt;/p&gt;" type="string|array" variable="$usage">
+            <type>string</type>
+            <type>array</type>
+          </tag>
+          <tag name="return" line="153" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$usage</name>
+          <default></default>
+          <type>string|array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="167" package="Aura.Cli">
+        <name>setDescr</name>
+        <full_name>\Aura\Cli\Help::setDescr()</full_name>
+        <docblock line="167">
+          <description>Sets the long-form description.</description>
+          <long-description></long-description>
+          <tag name="param" line="167" description="&lt;p&gt;The long-form description.&lt;/p&gt;" type="string" variable="$descr">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="167" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$descr</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="181" package="Aura.Cli">
+        <name>getHelp</name>
+        <full_name>\Aura\Cli\Help::getHelp()</full_name>
+        <docblock line="181">
+          <description>Gets the formatted help output.</description>
+          <long-description></long-description>
+          <tag name="param" line="181" description="&lt;p&gt;The command name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="181" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="205" package="Aura.Cli">
+        <name>getHelpSummary</name>
+        <full_name>\Aura\Cli\Help::getHelpSummary()</full_name>
+        <docblock line="205">
+          <description>Gets the formatted summary output.</description>
+          <long-description></long-description>
+          <tag name="param" line="205" description="&lt;p&gt;The command name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="205" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="225" package="Aura.Cli">
+        <name>getHelpUsage</name>
+        <full_name>\Aura\Cli\Help::getHelpUsage()</full_name>
+        <docblock line="225">
+          <description>Gets the formatted usage output.</description>
+          <long-description></long-description>
+          <tag name="param" line="225" description="&lt;p&gt;The command name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="225" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="248" package="Aura.Cli">
+        <name>getHelpOptions</name>
+        <full_name>\Aura\Cli\Help::getHelpOptions()</full_name>
+        <docblock line="248">
+          <description>Gets the formatted options output.</description>
+          <long-description></long-description>
+          <tag name="return" line="248" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="271" package="Aura.Cli">
+        <name>getHelpOption</name>
+        <full_name>\Aura\Cli\Help::getHelpOption()</full_name>
+        <docblock line="271">
+          <description>Gets the formatted output for one option.</description>
+          <long-description></long-description>
+          <tag name="param" line="271" description="&lt;p&gt;An option structure.&lt;/p&gt;" type="\stdClass" variable="$option">
+            <type>\stdClass</type>
+          </tag>
+          <tag name="return" line="271" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>\stdClass</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="304" package="Aura.Cli">
+        <name>getHelpOptionParam</name>
+        <full_name>\Aura\Cli\Help::getHelpOptionParam()</full_name>
+        <docblock line="304">
+          <description>Gets the formatted output for an option param.</description>
+          <long-description></long-description>
+          <tag name="param" line="304" description="&lt;p&gt;The option name.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="304" description="&lt;p&gt;The option param flag.&lt;/p&gt;" type="string" variable="$param">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="304" description="&lt;p&gt;The option multi flag.&lt;/p&gt;" type="boolean" variable="$multi">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="304" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$multi</name>
+          <default></default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="328" package="Aura.Cli">
+        <name>getHelpOptionParamShort</name>
+        <full_name>\Aura\Cli\Help::getHelpOptionParamShort()</full_name>
+        <docblock line="328">
+          <description>Gets the formatted output for a short option param.</description>
+          <long-description></long-description>
+          <tag name="param" line="328" description="&lt;p&gt;The option param flag.&lt;/p&gt;" type="string" variable="$param">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="328" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli" line="350" package="Aura.Cli">
+        <name>getHelpOptionParamLong</name>
+        <full_name>\Aura\Cli\Help::getHelpOptionParamLong()</full_name>
+        <docblock line="350">
+          <description>Gets the formatted output for a long option param.</description>
+          <long-description></long-description>
+          <tag name="param" line="350" description="&lt;p&gt;The option param flag.&lt;/p&gt;" type="string" variable="$param">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="350" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$param</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="370" package="Aura.Cli">
+        <name>getHelpDescr</name>
+        <full_name>\Aura\Cli\Help::getHelpDescr()</full_name>
+        <docblock line="370">
+          <description>Gets the formatted output for the long-form description.</description>
+          <long-description></long-description>
+          <tag name="return" line="370" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJzNWNtu20YQfddXTAkDooKIAvpYi2xU200MJJFh2Q+FbRgraiWxXZEsl3STOvr37o33JUVabhDBgERpd+bMnDOzs57+Gm7DweTNmwHwP7jZehTWHsHA3kMUxRCsYZZECNZBBFcfriy18B3xXOxTDNs4Dn+ZTIKQPQVJ5GIriDYT9SudLOlqrB4s5gp+W5xLC5OBj3aYhsjFwsH9GfFOB4OE5o/3Z4Ef4y/x/TyMvcD/HblxEH1li3K81ziMMMV+TCHeYjC2mIQGeD5Du0N8k8CNwA12O+SvMvTM7V9oI11ZzFWKySWIUvjArAyeB8BewhV/pW8sRRhI4G/G3Adwh8BBWpVl755QBDSOPH9T/mUi3sMoiLEb4xWcrDB1IxaV3t0MglAGIsPX+ikl6IA7ae5RmQMbUBShr+aoEQEPWGFY4bXne/wj1eIQpjr5px0cz4Cy7BHMBORjoAmjkAHmhHKuc0pfmHdlsNH9nDllvnZBhEtAEsqVg7+gXUiwPg/S/7cu6RDWGjGwCmC2Ek5VzRErT7QrU19jd+a3y0fBSZasRmGd+K5Y+/jopn7NVvsjsV1WCn+dxKx/jJ2axCrbTqsbuKi4EPhX+6Zc3LLWwJdDHIBQISLev1hoQVRhsPyT5ZT9BO7WIysQtawhKMJxEvngJ4S0c5PlQ8LTx5rK0obh8EAAC6zaVIdqkuQKAeUl07ESDwVYYZviWJJMzbK/VnZpTis9EPf7HnEr7M2VUwG/ycFX4SpTZdRdKdJ0ngaOZK1n7USQ1GV3f5YW0pKZujqoyLzFdeOnB+yWDltnKAXezlA3sBlDsg1zrCYdtXLzTcla7rg5uLc/M7fcnikdNLAiXdpZw+8WZD5oiCnBEyI+IESxsjKmtO3uH+45t2ZKRw3hShB2Nt10E6Ac23jvlR09icOkPlmVw+VjpIhWDQTAv3gV2fIx0BT2a0EKeHYarFqb1We+JX9ZlcVKMl2WynQfWlVug/ylpgr+8tZg/iRhjwpxFGMxPgcy6+gJeQQtCbaM/KDe57ZUKiOWyp2pTFr8bvB4Mf/Yn+m0XX1XsutnfDOHz9UsltpVNZ3Sd1vijOl0GZCV4yxuP32aXf8xnfIrTOw4Rp7GMtcWGPwt3fcswO2zfTAeg1HSQ7nhFuwo88fwJRvZj8FWrYgauJKNuTtTJ/xGx2siTfntYvb+QkdUvp1lCCN3C6acokblxo+o6vxVFByn/hcBJD02DHiWn/eFopSoS+sFcMtOBZMQxxHpybBnZnQx7KtaVfZerpZ0WGzQyxHcN419JeLTSfYI6udXN5fzz4uO5FdmZE67qgbbUYdhrQGrsdjWX5/Gjo//uWTXMeS7TOvS2tvU1qmeft3RYCpHo87Ev4BuQbO4owd+OvA3dIl7Gq/OxP9b0gzkt1V5+UyiV+0WlTTUBhdFPH8wOh22VzyO1B7jidXZW8geRZSF511CYq9+imdclBSc7WKXXFTTb7nMq2C7IxbG+0Ku4s41VK3B1Eyb7PNRccgGkOKcOmw7REUGtKekyAh7kONJBcIxnSyXNsp0KhLW9RRUe7SHYHmLfCrskV+sCdo07FwGAYETwVdxn/xCu+/oQlJaUqpPpVOQjKa21OhSOMO4VBgGgn11joNtw8+Ngm8U9WIbRLEpYRS64h4wobi3tY/s5qQxVqlRGWtzbd7Jz3eWZT08GP9rt0VAeQL66LKPyF5HLCWONMe2gsQEMIzw34kX4dVQf3Sz5E6fEEmwo7+jVKzJABFptnanzD203nkM40iS+I38x+aoqPwjKbJflaI7+3tQ1P2fLi/9j0LxNt8wtWrPyx4Xy/OLxdn1pZhbO18u8yOzhKHlyrgf/Afzk4xx</source>
+  </file>
+  <file path="Status.php" generated-path="Status.html" hash="fa2148738682a65bb59603381137c914" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli" line="19" package="Aura.Cli">
+      <extends/>
+      <name>Status</name>
+      <full_name>\Aura\Cli\Status</full_name>
+      <docblock line="19">
+        <description>Constants for preferred exit status codes; cf.</description>
+        <long-description>&lt;http://www.unix.com/man-page/freebsd/3/sysexits/&gt;.</long-description>
+        <tag name="package" line="19" description="Aura.Cli"/>
+      </docblock>
+      <constant namespace="Aura\Cli" line="24" package="Aura.Cli">
+        <name>SUCCESS</name>
+        <full_name>\Aura\Cli\Status::SUCCESS</full_name>
+        <value>0</value>
+        <docblock line="24">
+          <description>Success</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="29" package="Aura.Cli">
+        <name>FAILURE</name>
+        <full_name>\Aura\Cli\Status::FAILURE</full_name>
+        <value>1</value>
+        <docblock line="29">
+          <description>Failure</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="35" package="Aura.Cli">
+        <name>USAGE</name>
+        <full_name>\Aura\Cli\Status::USAGE</full_name>
+        <value>64</value>
+        <docblock line="35">
+          <description>The command was used incorrectly, e.g., with the wrong number of
+arguments, a bad flag, a bad syntax in a parameter, or whatever.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="41" package="Aura.Cli">
+        <name>DATAERR</name>
+        <full_name>\Aura\Cli\Status::DATAERR</full_name>
+        <value>65</value>
+        <docblock line="41">
+          <description>The input data was incorrect in some way. This should only be used for
+user’s data and not system files.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="48" package="Aura.Cli">
+        <name>NOINPUT</name>
+        <full_name>\Aura\Cli\Status::NOINPUT</full_name>
+        <value>66</value>
+        <docblock line="48">
+          <description>An input file (not a system file) did not exist or was not readable.</description>
+          <long-description>This could also include errors like "No message" to a mailer (if it
+cared to catch it).</long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="54" package="Aura.Cli">
+        <name>NOUSER</name>
+        <full_name>\Aura\Cli\Status::NOUSER</full_name>
+        <value>67</value>
+        <docblock line="54">
+          <description>The user specified did not exist. This might be used for mail addresses
+or remote logins.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="60" package="Aura.Cli">
+        <name>NOHOST</name>
+        <full_name>\Aura\Cli\Status::NOHOST</full_name>
+        <value>68</value>
+        <docblock line="60">
+          <description>The host specified did not exist. This is used in mail addresses or
+network requests.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="67" package="Aura.Cli">
+        <name>UNAVAILABLE</name>
+        <full_name>\Aura\Cli\Status::UNAVAILABLE</full_name>
+        <value>69</value>
+        <docblock line="67">
+          <description>A service is unavailable. This can occur if a support program or file
+does not exist. This can also be used as a catchall message when
+something you wanted to do does not work, but you do not know why.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="73" package="Aura.Cli">
+        <name>SOFTWARE</name>
+        <full_name>\Aura\Cli\Status::SOFTWARE</full_name>
+        <value>70</value>
+        <docblock line="73">
+          <description>An internal software error has been detected. This should be limited
+to non-operating system related errors as possible.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="81" package="Aura.Cli">
+        <name>OSERR</name>
+        <full_name>\Aura\Cli\Status::OSERR</full_name>
+        <value>71</value>
+        <docblock line="81">
+          <description>An operating system error has been detected. This is intended to be
+used for such things as "cannot fork", "cannot create pipe", or the
+like. It includes things like getuid returning a user that does not
+exist in the passwd file.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="88" package="Aura.Cli">
+        <name>OSFILE</name>
+        <full_name>\Aura\Cli\Status::OSFILE</full_name>
+        <value>72</value>
+        <docblock line="88">
+          <description>Some system file (e.g., /etc/passwd, /var/run/utmp, etc.) does not
+exist, cannot be opened, or has some sort of error (e.g., syntax
+error).</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="93" package="Aura.Cli">
+        <name>CANTCREAT</name>
+        <full_name>\Aura\Cli\Status::CANTCREAT</full_name>
+        <value>73</value>
+        <docblock line="93">
+          <description>A (user specified) output file cannot be created.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="98" package="Aura.Cli">
+        <name>IOERR</name>
+        <full_name>\Aura\Cli\Status::IOERR</full_name>
+        <value>74</value>
+        <docblock line="98">
+          <description>An error occurred while doing I/O on some file.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="105" package="Aura.Cli">
+        <name>TEMPFAIL</name>
+        <full_name>\Aura\Cli\Status::TEMPFAIL</full_name>
+        <value>75</value>
+        <docblock line="105">
+          <description>Temporary failure, indicating something that is not really an error.</description>
+          <long-description>In sendmail, this means that a mailer (e.g.) could not create a
+connection, and the request should be reattempted later.</long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="111" package="Aura.Cli">
+        <name>PROTOCOL</name>
+        <full_name>\Aura\Cli\Status::PROTOCOL</full_name>
+        <value>76</value>
+        <docblock line="111">
+          <description>The remote system returned something that was "not possible" during a
+protocol exchange.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="118" package="Aura.Cli">
+        <name>NOPERM</name>
+        <full_name>\Aura\Cli\Status::NOPERM</full_name>
+        <value>77</value>
+        <docblock line="118">
+          <description>You did not have sufficient permission to perform the operation. This
+is not intended for file system problems, which should use NOINPUT
+or CANTCREAT, but rather for higher level permissions.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Aura\Cli" line="123" package="Aura.Cli">
+        <name>CONFIG</name>
+        <full_name>\Aura\Cli\Status::CONFIG</full_name>
+        <value>78</value>
+        <docblock line="123">
+          <description>Something was found in an unconfigured or misconfigured state.</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+    </class>
+    <source>eJx9Vttu20YQfddXDPRkB7LYNm3SNklbRZETAYlkWHKLAn1ZkUtxYXKX3V1aEYoC/Y3+Xr+kZ5YX0TYdQgC1XHLmzMyZM/v65zIrR9GzZyPiH20z5ShVuSTcS2E9mZRmlRWUGktXH66mzYu/5CqW2knKvC9/jCJTYmUqG8upsfuo2XXRziUXzWIKV/R28662EI20KKQrRSyDgz/muXo16kGZG+280N4F16WVqbRWJiQ/K0/Y8ZWj2CTSvaI4ZVj0usFyOBymlVafp7EpokLoi1LsZZRaKYEmeh65o2MjLvqpiwYwbvFSQDIFkhZjnAvnaBO8jf4aEa6AkK9ntKniWDrXLKNwjxk2bW7m88VmQ/X1hr5CaA8+vhQqr6wc+Phytvx4c73oPv768cfbTOLlAsEldBCOKofMKB0bpCj2+XFCcrqfTuigfEYeLx+s0XvSVbGTFjVt7Qi7rwqJJE9I0E4klOZi3/53R+3FZ5jFGlxAuby0E0I1Dpnw8k7a6QD6m83sfYud0b/4dhi+0mXlKRFehAg68OzPmQKQxXFaE9JlpsoTMjo/0k7WwYIUrTWs7X///OtqY5wSbUCRo/OyCGR2QzjfzbazxfX1Ced3j3HOdAMztMQZmxV9w+eUqNobCAWbnBrEwg+sFInY5XJ6ilkxYTkQkTvDAedVIgmsNtZRrm4ljVeG0BQOVByTN3BWgCWo2JlKSfnWVCy4EbAfCx9n2DgfCnC1Xq6ubranAF8MF4LTR66UsUoVzN6LqClAofaZ76c+4CKRJBZoZdsBHL+VhfGScrNXejDvq/XNZtGmnWG9HIaVGbz8ZViqI/4DPHQih5b+YOwtcP1ZSeefgPRhvdn2IH0/QAVCmu6gZMGrFndwGOrbFFZoMnFcWUKlwJGqLA3Us7Rmj8bhxDBfWmOJke5RNGwiMKPNM5gk6hKLPG95gd6TurXDfeIzhc4+mgrU077mRWJOLjj6Ce1AYn4HO/zwVpsDLB0HG3g1+xUKNHv7cVFn44cnGgNqoEUOEKk/gJE1kykD7J2UmhLIRQxA95sYweWqUHje2vIMSV9ggljhOZamwazMBcfTNAjMlsY51eupe4q7vtz+NmtV8w29HJBcoH7k5cug+Yc4dVLndSd7mlM3gqtiVlhYDBDHqCInGFu340m3jCEH6IpSlXIcFBSa3Jrizp/S0reK4FpzQRL20legvsXNasYt6ob1kOCuyK2pWoXQDiz5JUbXIQm8G0rYenNSv5CwgTGzYR3u6R2d1WMlkj6OavtY3Akb2UpHlS9KDB4fT8+HkU2oSQdIwAcGmYRccPKD4jtTHzjqmjS+6inU2eGtQblbby6XHxe9eL4ZauKz+2p3TqbyncCf0NX1Sob8zGer7fx6Mdu2fp4PEq2OIUgCi/UhYweJ4QouozVmWR3yU9VZrh9UZ2iKygIiI+yR0vosMUHpExU3/O60IVBFdWMpxxQVDcBuOi2BBzRnGZ0w/6D5UmhXf3saQ1yS82aK9XgtuslktEb/KKMnYRAzDxvl7QkAfwRKldzd3OOD54jt4tMVn4S6DAzM520wHwZOJxrcJ7D7IHwey2NG3GrImJLKhn5qjUGrvYlNDq5CcfV+sC5X1+vter4+oRoYqr+zzjbjKhN3wFalqYoVzlkE+SkUEKD+0BOsIBRFSFOjTEbX0tMaa+rWqVDajJI2YKBGNAUOcKAYpKjJMmjeHgB6w7njbj0Q4C9DVdlkhgmPvzlOdXkP5BPj8mpx/anHzYEJvunSz5lPTaXDmAbvKhz0dKr2FbcFnySU6z3gg/1g4ufr1eXyfc8pZvTfo/8B+Ku/Kg==</source>
+  </file>
+  <file path="Stdio/Formatter.php" generated-path="Stdio.Formatter.html" hash="33822a8b1d1db8a796fd5106ab437fda" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Stdio" line="21" package="Aura.Cli">
+      <extends/>
+      <name>Formatter</name>
+      <full_name>\Aura\Cli\Stdio\Formatter</full_name>
+      <docblock line="21">
+        <description>Converts &lt;&lt;markup&gt;&gt; to VT100 display control codes for POSIX, or strips
+the &lt;&lt;markup&gt;&gt; entirely for non-POSIX.</description>
+        <long-description></long-description>
+        <tag name="package" line="21" description="Aura.Cli"/>
+        <tag name="author" line="21" description="Paul M. Jones" link="mailto:pmjones@paul-m-jones.com"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="33" package="Aura.Cli">
+        <name>$codes</name>
+        <full_name>\Aura\Cli\Stdio\Formatter::codes</full_name>
+        <default>array('reset' =&gt; '0', 'bold' =&gt; '1', 'dim' =&gt; '2', 'ul' =&gt; '4', 'blink' =&gt; '5', 'reverse' =&gt; '7', 'black' =&gt; '30', 'red' =&gt; '31', 'green' =&gt; '32', 'yellow' =&gt; '33', 'blue' =&gt; '34', 'magenta' =&gt; '35', 'cyan' =&gt; '36', 'white' =&gt; '37', 'blackbg' =&gt; '40', 'redbg' =&gt; '41', 'greenbg' =&gt; '42', 'yellowbg' =&gt; '43', 'bluebg' =&gt; '44', 'magentabg' =&gt; '45', 'cyanbg' =&gt; '46', 'whitebg' =&gt; '47')</default>
+        <docblock line="33">
+          <description>Array of &lt;&lt;markup&gt;&gt; names to control code numbers.</description>
+          <long-description>Based on the `ANSI/VT100 Terminal Control reference` at
+&lt;http://www.termsys.demon.co.uk/vtansi.htm&gt;.</long-description>
+          <tag name="var" line="33" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="65" package="Aura.Cli">
+        <name>$regex</name>
+        <full_name>\Aura\Cli\Stdio\Formatter::regex</full_name>
+        <default></default>
+        <docblock line="65">
+          <description>A regex for fomatting codes.</description>
+          <long-description></long-description>
+          <tag name="var" line="65" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="72" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Stdio\Formatter::__construct()</full_name>
+        <docblock line="72">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="92" package="Aura.Cli">
+        <name>format</name>
+        <full_name>\Aura\Cli\Stdio\Formatter::format()</full_name>
+        <docblock line="92">
+          <description>Converts &lt;&lt;markup&gt;&gt; in text to VT100 control codes for POSIX, or
+strips them for non-POSIX.</description>
+          <long-description></long-description>
+          <tag name="param" line="92" description="&lt;p&gt;The text to format.&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="92" description="&lt;p&gt;Is the destination a POSIX terminal?&lt;/p&gt;" type="boolean" variable="$posix">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="92" description="The coverted string." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$posix</name>
+          <default></default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="114" package="Aura.Cli">
+        <name>formatCallback</name>
+        <full_name>\Aura\Cli\Stdio\Formatter::formatCallback()</full_name>
+        <docblock line="114">
+          <description>The callback to format &lt;&lt;markup&gt;&gt; for POSIX.</description>
+          <long-description></long-description>
+          <tag name="param" line="114" description="&lt;p&gt;The matched &lt;&lt;markup&gt;&gt;.&lt;/p&gt;" type="array" variable="$matches">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="114" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$matches</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJyNVm1v2zYQ/u5fcSgMSEptKam7Flgct2mGYRnQrkDSYUAzuLRE25wlUiCpOEaa/94jRdmiZacjglDUvT3P8e7k8btyWfaSk5MemD+4XTIFc5ZTwL0kUoOYw2UlCcyFhM9/fI6d4vucpZQrCkuty1+TRJR4EpVMaSzkInFSlcxUNnSHGEPBh5vfag9Jj5OCqpKk1Aa4u8rZ3Y3OmDjvtQBdCX5PpVYwHhdErqpyMgEt4O/bs9NTyJgqc7KBVHAtRY57RlWN9K+b638GgE9KS1Yq40ovadsL5ZpJmm+sPhd8aG22/BDYiixqbDFia96TSi9NAFLl8DGGPwXHkOOy+M88oFWVD4uhPcSpKCYN2TQnSsHvQhZEayp7jz3AZXma1WxwKSUSwqS3kNpEGdZtnsCrYkalivccfCCKZiC4pfvt8tPNdVIn65bKgnGSm5RaL5LOqaQ8pd+A6MZ87O5zvV7HiLNQGxVntBAc2cTVKrnXhCsWL3Ux2Y/8/p5IIAa/L0jsXkqhaaoRW7++potaN6y1cAWSKqoDd7qYQHAaDHbSmcizRmilZ21pxoqt0EpftaVVvhNa6WvPc874qh33l7ZUUixARYOt9K1vi3XSth2d+saZD2vkoV5ISrln7cHe0DwX66AlHvmxK+plZOTRKrB8uSY74COPV7oh3Ld+0xavl0xTD1qX92yxc/56n3cjdOIub8/6AG8nt+IO7613Kz7Eu9aw4g5v37rL24PW8I5wMJn9QNNiLy3og50kc2E6nPFFPY0ONomZSXzxky6xLo+GxCZGL1WqhYwPOqqwqlOYVzzVDKfBdJo2FmFkNR63nPsap/5wUnO4gGA8vlMnYRgGWw1vxcCKMkdyYfA9GNRdPF3RjQqdI0s8io5ZB1GI/qPoZTSZBOdW66n3DM/O/Gc43OiD3n0Hnpn/jZ/6M2CGYtEZ+P4F4VePFO6KoO/2WxymTcy5HeJH7GYCcfRLodgDXNt4gJiwHoi9BlIjA+2G8bt9L5LqSnJohU2FSQBWRP3uf912DTF06AcO0P69szmETtJ6a5ZDUWJJTCXFb2xKpynJ8xk2fdi51xfJY7uEnpIvhWIvBh29et5b1QEENcYr5zWIuvr9dp+4FZ1vj09Ac/wB8lPk4RF8EGD1uhhtt01Fmq1bkPZKHOhdNbTLc1t/R0rEpgH6aJUusVyNw/o5a3np2HqF8fzo2CuDJsWhH7gzBdA1dr+XuSDBVn0ZJZgvzFVwbhLmzL+e/dtKmkOXLmX46m1kmvxrgP/RpZa2DAfgDQejUWyb/6n3AxfvrkQ=</source>
+  </file>
+  <file path="Stdio/Handle.php" generated-path="Stdio.Handle.html" hash="b99aed61c256964b1c147773dc425bba" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Aura\Cli\Stdio" line="18" package="Aura.Cli">
+      <extends/>
+      <name>Handle</name>
+      <full_name>\Aura\Cli\Stdio\Handle</full_name>
+      <docblock line="18">
+        <description>An object-oriented wrapper for file/stream resources.</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="27" package="Aura.Cli">
+        <name>$resource</name>
+        <full_name>\Aura\Cli\Stdio\Handle::resource</full_name>
+        <default></default>
+        <docblock line="27">
+          <description>The resource represented by the handle.</description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="" type="resource" variable="">
+            <type>resource</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="36" package="Aura.Cli">
+        <name>$name</name>
+        <full_name>\Aura\Cli\Stdio\Handle::name</full_name>
+        <default></default>
+        <docblock line="36">
+          <description>The resource name, typically a file or stream name.</description>
+          <long-description></long-description>
+          <tag name="var" line="36" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="45" package="Aura.Cli">
+        <name>$mode</name>
+        <full_name>\Aura\Cli\Stdio\Handle::mode</full_name>
+        <default></default>
+        <docblock line="45">
+          <description>The mode under which the resource was opened.</description>
+          <long-description></long-description>
+          <tag name="var" line="45" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="54" package="Aura.Cli">
+        <name>$php_os</name>
+        <full_name>\Aura\Cli\Stdio\Handle::php_os</full_name>
+        <default></default>
+        <docblock line="54">
+          <description>What is the current OS? (Used for POSIX checks.)</description>
+          <long-description></long-description>
+          <tag name="var" line="54" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="63" package="Aura.Cli">
+        <name>$posix</name>
+        <full_name>\Aura\Cli\Stdio\Handle::posix</full_name>
+        <default></default>
+        <docblock line="63">
+          <description>Is this a POSIX terminal?</description>
+          <long-description></long-description>
+          <tag name="var" line="63" description="" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="79" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Stdio\Handle::__construct()</full_name>
+        <docblock line="79">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="79" description="&lt;p&gt;The resource to open, typically a PHP stream&#10;like &quot;php://stdout&quot;.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="79" description="&lt;p&gt;Open the resource in this mode; e.g., &quot;w+&quot;.&lt;/p&gt;" type="string" variable="$mode">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="79" description="&lt;p&gt;Force this PHP OS value; generally for testing.&lt;/p&gt;" type="string" variable="$php_os">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="79" description="&lt;p&gt;Force this POSIX flag; generally for testing.&lt;/p&gt;" type="boolean" variable="$posix">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$mode</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$php_os</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$posix</name>
+          <default>null</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="98" package="Aura.Cli">
+        <name>setPhpOs</name>
+        <full_name>\Aura\Cli\Stdio\Handle::setPhpOs()</full_name>
+        <docblock line="98">
+          <description>Sets `$php_os`.</description>
+          <long-description></long-description>
+          <tag name="param" line="98" description="&lt;p&gt;The operating system; if empty, uses the value of&#10;the PHP_OS constant.&lt;/p&gt;" type="string" variable="$php_os">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="98" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$php_os</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Aura\Cli\Stdio" line="117" package="Aura.Cli">
+        <name>setPosix</name>
+        <full_name>\Aura\Cli\Stdio\Handle::setPosix()</full_name>
+        <docblock line="117">
+          <description>Sets `$posix`.</description>
+          <long-description></long-description>
+          <tag name="param" line="117" description="&lt;p&gt;If boolean, forces the $posix value; otherwise,&#10;checks the &lt;code&gt;$php_os&lt;/code&gt; value and &lt;code&gt;posix_isatty()&lt;/code&gt; to auto-determine the&#10;value.&lt;/p&gt;" type="mixed" variable="$posix">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="117" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$posix</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="148" package="Aura.Cli">
+        <name>__destruct</name>
+        <full_name>\Aura\Cli\Stdio\Handle::__destruct()</full_name>
+        <docblock line="148">
+          <description>Destructor; closes the resource if it is not already closed.</description>
+          <long-description></long-description>
+          <tag name="return" line="148" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="162" package="Aura.Cli">
+        <name>getName</name>
+        <full_name>\Aura\Cli\Stdio\Handle::getName()</full_name>
+        <docblock line="162">
+          <description>Returns the resource name.</description>
+          <long-description></long-description>
+          <tag name="return" line="162" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="174" package="Aura.Cli">
+        <name>getMode</name>
+        <full_name>\Aura\Cli\Stdio\Handle::getMode()</full_name>
+        <docblock line="174">
+          <description>Returns the resource mode.</description>
+          <long-description></long-description>
+          <tag name="return" line="174" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="186" package="Aura.Cli">
+        <name>fread</name>
+        <full_name>\Aura\Cli\Stdio\Handle::fread()</full_name>
+        <docblock line="186">
+          <description>Reads 8192 bytes from the resource.</description>
+          <long-description></long-description>
+          <tag name="return" line="186" description="The string read on success, or boolean false on failure." type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="201" package="Aura.Cli">
+        <name>fwrite</name>
+        <full_name>\Aura\Cli\Stdio\Handle::fwrite()</full_name>
+        <docblock line="201">
+          <description>Writes a string to the resource.</description>
+          <long-description></long-description>
+          <tag name="param" line="201" description="" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="201" description="The number of bytes written on success, or boolean false on&#10;failure." type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="213" package="Aura.Cli">
+        <name>rewind</name>
+        <full_name>\Aura\Cli\Stdio\Handle::rewind()</full_name>
+        <docblock line="213">
+          <description>Rewinds the resource pointer.</description>
+          <long-description></long-description>
+          <tag name="return" line="213" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="225" package="Aura.Cli">
+        <name>fgets</name>
+        <full_name>\Aura\Cli\Stdio\Handle::fgets()</full_name>
+        <docblock line="225">
+          <description>Reads a line from the resource.</description>
+          <long-description></long-description>
+          <tag name="return" line="225" description="The line on success, or boolean false on failure." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli\Stdio" line="237" package="Aura.Cli">
+        <name>isPosix</name>
+        <full_name>\Aura\Cli\Stdio\Handle::isPosix()</full_name>
+        <docblock line="237">
+          <description>Does the resource represent an interactive terminal?</description>
+          <long-description></long-description>
+          <tag name="return" line="237" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJytWNtu4zYQffdXTIMAkbeKvW1f2qZudrvBYvPQJqhbbB8WcGiJstlIokBScYwi/94ZklIk2bKcRYwAvpA8c2bOXKj8clmsi9H0zZsR0B/8tRYaEpFywPeCKQMygfelYpBIBbefbid+47tURDzXHNbGFD9Pp7LAb7JUEZ9ItZr6VT1d6vjcf5mgKfhtfuUQpqOcZVwXLOLWwJcPqfgyN7GQF6MGofc5yOW/PDLnUgmeGx7DRrGi4MoyIqpTbRRnGSjuCOiaI4Lfs5XDnyB+ZTlKmdbwieVxykf/jQBf1iK9qjcMBa8h8UOBn5395RYMrq3t8Unn1LsHpupj7bWpfS+UNOgO4pxW29DhIyhQuEIw20JELE23wJxOGATvP23YSwfXRb4aIEOnDxLJZMyhzGOM/GYtorUNQs1uwzRQDvD46ymQhV4Kn9fMUFKS1ahUCrWAm/klBH9rPGuz82Z+/Q9Eax7d68n4q1lgli6k7uVxTRSQB/P2DFeZyFl6uc/gUsp0yJzU4rHX2geZI+kyMlLtxBXLE1V3Pjn92gljpFWknTNYwj5fKpxU3HM4Qa+xirWJZWlOBkzZTLhB6HYKiNxFxsoIfLKahHCy+XYIzcUbPkrLmQCI480cHlhaItAKk0pZ9iSy4drgsR5MircPaQvQKpWkbHUcnBepXGLngqTMIyNkDotFVKkRnLpqtKEIax9mkJdpGlYM3FeXia7L0OuUKJ3/avWaVXXXWbQRnlUV0VmsAz5DF1CFoIEYNhHGO0c1N7fr4kYHnvH+HUQ+cD74DU99+TnnRsOdR7s7TmlKUuStGEUe9FYbnl2ASIBnhdmGUOLcsJllEwAHUAVHv2FuLDA3rBIsNzsWFTelym3gDxdeLetOTPbrVUtcN4hqAzIPvmlvGzfO78NwXjxDPB0XZVKkL8iZeKzbCVwnthQ4w+pPqA5cQP2qLyyJP6mN0DysoFzvtFtrTb0KOOzgzh5fCM2M2QbjO+owrDTyPOauC1K5VUPPnXslfZoZ2ZFnOrUeUioJuq0kNBFlftmSR+gFxaOC6JPHV23Vk5tbHO+mYk0GG5HHcqPbRjHtjUzlhqtAl0v8FrTSIIS3IfyAXGYzOEOAsy6rZ1yae7k0YHkdYp6wVPOXEG/LdwEarxQ5tpa20sCVkkoj1oqpuB6hDiKX+TnVYoxLz3ew0A4AcGMl45lU21ZwKnkX/FFoo4OzpsWzXYVS/sBT9NAyWeB1TCpqH8Hb8cWhgLT86PTPzskusjM5PrpIr3g1qS8gSmXVxJ7HY0IJ6pVkKY7geOs27l6ZhqpkZzLF3njQLQ+KddfvTmwTS+JAdAYc/9OS7Xi79zLq3TpwDes4tuLmDwTa8coDNQbfwJzay5Fm5Ktw/B2BBjg+T/IDHFms4cfvfvoeHzHwYgKJklmLcR9Z1/tprvpRS8kF1DvLCGsRi1GqaiC4HkGLCRNpqbqg+51MCLHPRbfYyZ/QejJ0f/isBHnKKuI4UQ463L5Q7BOpDorABwQKSV5mS3xmwedYF9UNmjR4dx0ITwX3oigRNlaS49UXLb+pG67q1GCW0FDoZHIh0Vu++4jgTfY+hnT4K4vdJ7Nf3d8nBrKa4WMGXg+OzmivMOlnD75qLmPF6t5ctosv9PFKdpt9/f8CvDiB1Yah8Qfe/7j4QqmEdpeiw12ncZF5Gj2N/gcvL/TY</source>
+  </file>
+  <file path="Stdio.php" generated-path="Stdio.html" hash="2b362a19fecb2f3d03aca0ad543219f2" package="Default">
+    <docblock line="0">
+      <description>This file is part of Aura for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="license" line="0" description="BSD" link="http://opensource.org/licenses/bsd-license.php"/>
+    </docblock>
+    <namespace-alias name="Handle">\Aura\Cli\Stdio\Handle</namespace-alias>
+    <namespace-alias name="Formatter">\Aura\Cli\Stdio\Formatter</namespace-alias>
+    <class final="false" abstract="false" namespace="Aura\Cli" line="21" package="Aura.Cli">
+      <extends/>
+      <name>Stdio</name>
+      <full_name>\Aura\Cli\Stdio</full_name>
+      <docblock line="21">
+        <description>Provides a wrapper for standard input/output streams.</description>
+        <long-description></long-description>
+        <tag name="package" line="21" description="Aura.Cli"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="30" package="Aura.Cli">
+        <name>$stdin</name>
+        <full_name>\Aura\Cli\Stdio::stdin</full_name>
+        <default></default>
+        <docblock line="30">
+          <description>A Handle object for standard input.</description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="" type="\Aura\Cli\Stdio\Handle" variable="">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="39" package="Aura.Cli">
+        <name>$stdout</name>
+        <full_name>\Aura\Cli\Stdio::stdout</full_name>
+        <default></default>
+        <docblock line="39">
+          <description>A Handle object for standard output.</description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="" type="\Aura\Cli\Stdio\Handle" variable="">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="48" package="Aura.Cli">
+        <name>$stderr</name>
+        <full_name>\Aura\Cli\Stdio::stderr</full_name>
+        <default></default>
+        <docblock line="48">
+          <description>A Handle object for standard error.</description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="" type="\Aura\Cli\Stdio\Handle" variable="">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Aura\Cli" line="57" package="Aura.Cli">
+        <name>$formatter</name>
+        <full_name>\Aura\Cli\Stdio::formatter</full_name>
+        <default></default>
+        <docblock line="57">
+          <description>A Formatter object to format output.</description>
+          <long-description></long-description>
+          <tag name="var" line="57" description="" type="\Aura\Cli\Stdio\Formatter" variable="">
+            <type>\Aura\Cli\Stdio\Formatter</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="72" package="Aura.Cli">
+        <name>__construct</name>
+        <full_name>\Aura\Cli\Stdio::__construct()</full_name>
+        <docblock line="72">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="72" description="&lt;p&gt;A Handle object for standard input.&lt;/p&gt;" type="\Aura\Cli\Stdio\Handle" variable="$stdin">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+          <tag name="param" line="72" description="&lt;p&gt;A Handle object for standard output.&lt;/p&gt;" type="\Aura\Cli\Stdio\Handle" variable="$stdout">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+          <tag name="param" line="72" description="&lt;p&gt;A Handle object for standard error.&lt;/p&gt;" type="\Aura\Cli\Stdio\Handle" variable="$stderr">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+          <tag name="param" line="72" description="&lt;p&gt;A VT100 formatting object.&lt;/p&gt;" type="\Aura\Cli\Stdio\Formatter" variable="$formatter">
+            <type>\Aura\Cli\Stdio\Formatter</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$stdin</name>
+          <default></default>
+          <type>\Aura\Cli\Stdio\Handle</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stdout</name>
+          <default></default>
+          <type>\Aura\Cli\Stdio\Handle</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stderr</name>
+          <default></default>
+          <type>\Aura\Cli\Stdio\Handle</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$formatter</name>
+          <default></default>
+          <type>\Aura\Cli\Stdio\Formatter</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="91" package="Aura.Cli">
+        <name>getStdin</name>
+        <full_name>\Aura\Cli\Stdio::getStdin()</full_name>
+        <docblock line="91">
+          <description>Returns the standard input Handle object.</description>
+          <long-description></long-description>
+          <tag name="return" line="91" description="" type="\Aura\Cli\Stdio\Handle">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="103" package="Aura.Cli">
+        <name>getStdout</name>
+        <full_name>\Aura\Cli\Stdio::getStdout()</full_name>
+        <docblock line="103">
+          <description>Returns the standard output Handle object.</description>
+          <long-description></long-description>
+          <tag name="return" line="103" description="" type="\Aura\Cli\Stdio\Handle">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="115" package="Aura.Cli">
+        <name>getStderr</name>
+        <full_name>\Aura\Cli\Stdio::getStderr()</full_name>
+        <docblock line="115">
+          <description>Returns the standard error Handle object.</description>
+          <long-description></long-description>
+          <tag name="return" line="115" description="" type="\Aura\Cli\Stdio\Handle">
+            <type>\Aura\Cli\Stdio\Handle</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="127" package="Aura.Cli">
+        <name>in</name>
+        <full_name>\Aura\Cli\Stdio::in()</full_name>
+        <docblock line="127">
+          <description>Gets user input from the command line and trims the end-of-line.</description>
+          <long-description></long-description>
+          <tag name="return" line="127" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="140" package="Aura.Cli">
+        <name>inln</name>
+        <full_name>\Aura\Cli\Stdio::inln()</full_name>
+        <docblock line="140">
+          <description>Gets user input from the command line and leaves the end-of-line in
+place.</description>
+          <long-description></long-description>
+          <tag name="return" line="140" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="154" package="Aura.Cli">
+        <name>out</name>
+        <full_name>\Aura\Cli\Stdio::out()</full_name>
+        <docblock line="154">
+          <description>Prints formatted text to standard output **without** a trailing newline.</description>
+          <long-description></long-description>
+          <tag name="param" line="154" description="&lt;p&gt;The text to print to standard output.&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="154" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="169" package="Aura.Cli">
+        <name>outln</name>
+        <full_name>\Aura\Cli\Stdio::outln()</full_name>
+        <docblock line="169">
+          <description>Prints formatted text to standard output **with** a trailing newline.</description>
+          <long-description></long-description>
+          <tag name="param" line="169" description="&lt;p&gt;The text to print to standard output.&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="169" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="183" package="Aura.Cli">
+        <name>err</name>
+        <full_name>\Aura\Cli\Stdio::err()</full_name>
+        <docblock line="183">
+          <description>Prints formatted text to standard error **without** a trailing newline.</description>
+          <long-description></long-description>
+          <tag name="param" line="183" description="&lt;p&gt;The text to print to standard error.&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="183" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Aura\Cli" line="198" package="Aura.Cli">
+        <name>errln</name>
+        <full_name>\Aura\Cli\Stdio::errln()</full_name>
+        <docblock line="198">
+          <description>Prints formatted text to standard error **with** a trailing newline.</description>
+          <long-description></long-description>
+          <tag name="param" line="198" description="&lt;p&gt;The text to print to standard error.&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="198" description="" type="null">
+            <type>null</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJzNVltP2zAUfs+vOA88tBVN2OtYGYxdeJi0aqA9ISGTOK23xI5shyIh/vuO7dyapKSUViKq5MaX853vO5f40+dsmXnBZOKB+cHNkimIWUIBx4xIDSKGi1wSiIWE+dXcLzaeJyykXFFYap19DAKR4ZvIZUh9IRdBsaqCexVNixcfoeDL9VdnIfA4SanKSEgtwO1lwk49L1f16+21jpi4vSI8Suhp39J3IVOiNZV4siYxl+KBRVQBgZUkWUal9V5pNERkBIxnuQ5ErnHAWUlJqipe6NA/snBIPiKV3oYJUQosrPfkAT4W0DzlABfgfAVx/5eGugfVb504fyCyOLS+Etgxk0KjIRrBkUJkjjR3QHZM3wSNJnbDplIK+SZotPACdJUBJboWxgGce4l2dWoAPm7kV78Hl4JjBuWh7mGJ9UPSUhwXwF1SpGMGie0U8I4hlHaX6Dk7tfK1TGjtz82Hk5MiBJrxRWHX71U6v8feAHHOQ80Eh7u7sJQTRm4nPmsCHvdNI9/eeXS/nu/z1y6O4anadKSxAU7PXKxgVpVdd90EYVbXRneDEXdWZ3BrQy2Z2dTIM7PneVO2/aY6l1yBXtJW1qxHsRMyaQ++VHOtUCyoNr2Oj8Z2uVaosNQUaheni+57EK/R9rDbVdRe57etiMO4jaaH3a5yaaPbP6hWgN9KWSRGLEVqOYQiTdElSBinYP5oyVJHj/JoKuKpWdnEBssSq3kbNpuTRhrEUTN1sBCQvBqNj83l4u7br5/jvdFLKHmgHX54rDSVJXj52AffZKsyqbgOMJwjMHIsewLGiT7a71q7eCaTFdNLfJlM8KqjJWGJabicrnoD6dq242X6kh1vUJ3SfmaAe4A2ScTzJNlGIFOPJd7MnmqrVa+222P5tzRwvF7C0zOm5kKxx9F4vKFLo4WVZJqWFvYs//vXHrNzQH0nVzNM/rblOKyW65iHz9X+u8or5TI9+BCpinaHUtVu2XeqNsV/98pvm6jNIHUT9dn7D5WyMBo=</source>
+  </file>
+  <package name="Aura.Cli" full_name="Aura.Cli"/>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="Aura" full_name="Aura">
+    <namespace name="Cli" full_name="Aura\Cli">
+      <namespace name="Context" full_name="Aura\Cli\Context"/>
+      <namespace name="Exception" full_name="Aura\Cli\Exception"/>
+      <namespace name="Stdio" full_name="Aura\Cli\Stdio"/>
+    </namespace>
+  </namespace>
+  <deprecated count="0"/>
+</project>

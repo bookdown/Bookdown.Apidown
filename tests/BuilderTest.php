@@ -176,16 +176,12 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         );
 
         $actual = $this->builder->getArguments($xmlMethod);
-
-        $this->assertSame(array('$foo', '$bar', '$baz'), array_keys($actual));
-        $this->assertSame($expect['$foo'], (array) $actual['$foo']);
-        $this->assertSame($expect['$bar'], (array) $actual['$bar']);
-        $this->assertSame($expect['$baz'], (array) $actual['$baz']);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testNewMethod()
     {
-        $xmlMethod = $this->newXml('
+        $xml = $this->newXml('
             <method>
                 <name>fooMethod</name>
                 <docblock>
@@ -219,7 +215,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             </method>
         ');
 
-        $expect_method = array(
+        $expect = array(
             'name' => 'fooMethod',
             'inheritedFrom' => null,
             'isDeprecated' => false,
@@ -230,41 +226,33 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             'final' => null,
             'abstract' => null,
             'static' => null,
+            'arguments' => array(
+                '$bar' => array(
+                    'name' => '$bar',
+                    'summary' => 'Bar',
+                    'byReference' => false,
+                    'type' => 'int',
+                    'default' => null,
+                ),
+                '$foo' => array(
+                    'name' => '$foo',
+                    'summary' => 'Foo',
+                    'byReference' => false,
+                    'type' => 'string',
+                    'default' => null,
+                ),
+                '$baz' => array(
+                    'name' => '$baz',
+                    'summary' => 'Baz',
+                    'byReference' => false,
+                    'type' => 'array',
+                    'default' => null,
+                ),
+            ),
         );
 
-        $expect_arguments = array(
-            '$bar' => array(
-                'name' => '$bar',
-                'summary' => 'Bar',
-                'byReference' => false,
-                'type' => 'int',
-                'default' => null,
-            ),
-            '$foo' => array(
-                'name' => '$foo',
-                'summary' => 'Foo',
-                'byReference' => false,
-                'type' => 'string',
-                'default' => null,
-            ),
-            '$baz' => array(
-                'name' => '$baz',
-                'summary' => 'Baz',
-                'byReference' => false,
-                'type' => 'array',
-                'default' => null,
-            ),
-        );
-
-        $actual_method = $this->builder->newMethod($xmlMethod);
-        $actual_arguments = $actual_method->arguments;
-        unset($actual_method->arguments);
-
-        $this->assertSame($expect_method, (array) $actual_method);
-        $this->assertSame(array('$bar', '$foo', '$baz'), array_keys($actual_arguments));
-        $this->assertSame($expect_arguments['$bar'], (array) $actual_arguments['$bar']);
-        $this->assertSame($expect_arguments['$foo'], (array) $actual_arguments['$foo']);
-        $this->assertSame($expect_arguments['$baz'], (array) $actual_arguments['$baz']);
+        $actual = $this->builder->newMethod($xml);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testGetMethods()
@@ -326,10 +314,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         );
 
         $actual = $this->builder->getMethods($xml);
-        $this->assertSame(array('fooMethod', 'barMethod', 'bazMethod'), array_keys($actual));
-        $this->assertSame($expect['fooMethod'], (array) $actual['fooMethod']);
-        $this->assertSame($expect['barMethod'], (array) $actual['barMethod']);
-        $this->assertSame($expect['bazMethod'], (array) $actual['bazMethod']);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testNewProperty()
@@ -360,8 +345,8 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
             'default' => null,
         );
 
-        $actual = (array) $this->builder->newProperty($xml);
-        $this->assertSame($expect, $actual);
+        $actual = $this->builder->newProperty($xml);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testGetProperties()
@@ -417,10 +402,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         );
 
         $actual = $this->builder->getProperties($xml);
-        $this->assertSame(array('$foo', '$bar', '$baz'), array_keys($actual));
-        $this->assertSame($expect['$foo'], (array) $actual['$foo']);
-        $this->assertSame($expect['$bar'], (array) $actual['$bar']);
-        $this->assertSame($expect['$baz'], (array) $actual['$baz']);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testNewConstant()
@@ -447,7 +429,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         );
 
         $actual = $this->builder->newConstant($xml);
-        $this->assertSame($expect, (array) $actual);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testGetConstants()
@@ -497,10 +479,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
         );
 
         $actual = $this->builder->getConstants($xml);
-        $this->assertSame(array('FOO', 'BAR', 'BAZ'), array_keys($actual));
-        $this->assertSame($expect['FOO'], (array) $actual['FOO']);
-        $this->assertSame($expect['BAR'], (array) $actual['BAR']);
-        $this->assertSame($expect['BAZ'], (array) $actual['BAZ']);
+        $this->assertSameAsArray($expect, $actual);
     }
 
     public function testNewClass()
@@ -515,41 +494,144 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
                     <description>Baz summary.</description>
                     <long-description>Baz description.</long-description>
                 </docblock>
+                <constant>
+                    <name>FOO</name>
+                </constant>
+                <constant>
+                    <name>ABSTRACT_FOO</name>
+                    <inherited_from>\Foo\Bar\AbstractBaz</inherited_from>
+                </constant>
+                <property>
+                    <name>$fooProp</name>
+                </property>
+                <property>
+                    <name>$abstractFooProp</name>
+                    <inherited_from>\Foo\Bar\AbstractBaz</inherited_from>
+                </property>
+                <method>
+                    <name>fooFunc</name>
+                </method>
+                <method>
+                    <name>abstractFooFunc</name>
+                    <inherited_from>\Foo\Bar\AbstractBaz</inherited_from>
+                </method>
             </class>
         ');
 
-        // $expect = \stdClass::__set_state(array(
-        //     'fullName' => 'Foo\\Bar\\Baz',
-        //     'package' => null,
-        //     'isDeprecated' => false,
-        //     'summary' => 'Baz summary.',
-        //     'narrative' => 'Baz description.',
-        //     'namespace' => 'Foo\\Bar',
-        //     'final' => null,
-        //     'abstract' => null,
-        //     'type' => 'class',
-        //     'name' => 'Baz',
-        //     'extends' => '\\Foo\\Bar\\AbstractBaz',
-        //     'implements' => array (
-        //         0 => 'Foo\\Bar\\BazInterface',
-        //     ),
-        //     'constants' => array (
-        //     ),
-        //     'properties' => array (
-        //     ),
-        //     'methods' => array (
-        //     ),
-        //     'inherited' => \stdClass::__set_state(array(
-        //         'constants' => array (
-        //         ),
-        //         'properties' => array (
-        //         ),
-        //         'methods' => array (
-        //         ),
-        //     )),
-        // ));
+        $expect = array(
+            'fullName' => 'Foo\\Bar\\Baz',
+            'package' => null,
+            'isDeprecated' => false,
+            'summary' => 'Baz summary.',
+            'narrative' => 'Baz description.',
+            'namespace' => 'Foo\\Bar',
+            'final' => null,
+            'abstract' => null,
+            'type' => 'class',
+            'name' => 'Baz',
+            'extends' => '\\Foo\\Bar\\AbstractBaz',
+            'implements' => array(
+                0 => 'Foo\\Bar\\BazInterface',
+            ),
+            'constants' => array(
+                'FOO' => array(
+                    'name' => 'FOO',
+                    'inheritedFrom' => null,
+                    'isDeprecated' => false,
+                    'summary' => null,
+                    'narrative' => null,
+                    'type' => null,
+                    'value' => null,
+                ),
+            ),
+            'properties' => array(
+                '$fooProp'=> array(
+                    'name' => '$fooProp',
+                    'inheritedFrom' => null,
+                    'isDeprecated' => false,
+                    'summary' => null,
+                    'narrative' => null,
+                    'type' => null,
+                    'visibility' => null,
+                    'static' => null,
+                    'default' => null,
+                ),
+            ),
+            'methods' => array(
+                'fooFunc'=> array(
+                    'name' => 'fooFunc',
+                    'inheritedFrom' => null,
+                    'isDeprecated' => false,
+                    'summary' => null,
+                    'narrative' => null,
+                    'return' => null,
+                    'visibility' => null,
+                    'final' => null,
+                    'abstract' => null,
+                    'static' => null,
+                    'arguments' => array(),
+                ),
+            ),
+            'inherited' => array(
+                'constants' => array(
+                    'ABSTRACT_FOO' => array(
+                        'name' => 'ABSTRACT_FOO',
+                        'inheritedFrom' => '\\Foo\\Bar\\AbstractBaz',
+                        'isDeprecated' => false,
+                        'summary' => null,
+                        'narrative' => null,
+                        'type' => null,
+                        'value' => null,
+                    ),
+                ),
+                'properties' => array(
+                    '$abstractFooProp' => array(
+                        'name' => '$abstractFooProp',
+                        'inheritedFrom' => '\\Foo\\Bar\\AbstractBaz',
+                        'isDeprecated' => false,
+                        'summary' => null,
+                        'narrative' => null,
+                        'type' => null,
+                        'visibility' => null,
+                        'static' => null,
+                        'default' => null,
+                    ),
+                ),
+                'methods' => array(
+                    'abstractFooFunc' => array(
+                        'name' => 'abstractFooFunc',
+                        'inheritedFrom' => '\\Foo\\Bar\\AbstractBaz',
+                        'isDeprecated' => false,
+                        'summary' => null,
+                        'narrative' => null,
+                        'return' => null,
+                        'visibility' => null,
+                        'final' => null,
+                        'abstract' => null,
+                        'static' => null,
+                        'arguments' => array(),
+                    ),
+                ),
+            ),
+        );
 
         $actual = $this->builder->newClass($xml);
-        var_export($actual);
+        $this->assertSameAsArray($expect, $actual);
+    }
+
+    protected function assertSameAsArray($expect, $actual)
+    {
+        $this->assertSame($expect, $this->toArray($actual));
+    }
+
+    protected function toArray($obj)
+    {
+        $obj = (array) $obj;
+        foreach ($obj as $key => $val) {
+            if (is_array($val) || is_object($val)) {
+                $obj[$key] = $this->toArray($val);
+            }
+        }
+        return $obj;
     }
 }
